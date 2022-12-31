@@ -1,0 +1,20 @@
+<div class="container mx-auto py-4">
+
+    <div class="border border-slate-200	border-solid " >
+        <div class="border-b border-slate-200 border-solid pl-6 py-1 mb-1 shadow">分类</div>
+        <ul >
+            <li *ngFor="let category of categories" class="mb-1.5 flex flex-row pl-6">
+                <div class="basis-24 flex-none my-1.5">{{category.label}}</div>
+                <div >
+                    <ul class="flex flex-row flex-wrap">
+                        <li *ngFor="let tag of category.tags" class="px-2 border-l border-slate-400	border-solid my-1.5">
+                            <a routerLink="{{tag.url}}" class="text-sky-500	">{{tag.label}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<button></button>
