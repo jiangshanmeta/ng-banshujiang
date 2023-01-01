@@ -1,5 +1,5 @@
 <div class="container mx-auto py-4">
-    <div *ngIf="book" class="mb-8 flex flex-row border border-solid border-slate-200 px-4">
+    <div *ngIf="book; else noBook" class="mb-8 flex flex-row border border-solid border-slate-200 px-4">
         <div class="basis-5/12">
             <img src="https://jiangshanmeta.github.io/spider-banshujiang/images/{{book.id}}.jpeg" />
         </div>
@@ -27,4 +27,9 @@
             </div>
         </div>
     </div>
+
+    <ng-template #noBook>
+        <div *ngIf="loading; else notFound">Loading</div>
+        <ng-template #notFound>Not Found</ng-template>
+    </ng-template>
 </div>
