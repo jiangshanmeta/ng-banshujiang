@@ -1,0 +1,30 @@
+<div class="container mx-auto py-4">
+    <div *ngIf="book" class="mb-8 flex flex-row border border-solid border-slate-200 px-4">
+        <div class="basis-5/12">
+            <img src="https://jiangshanmeta.github.io/spider-banshujiang/images/{{book.id}}.jpeg" />
+        </div>
+        <div class="flex-auto pt-3">
+            <h2 class="mb-8 text-center text-2xl font-bold underline underline-offset-8">{{book.title}}</h2>
+
+            <div class="mb-4">
+                <div class="float-left w-24 text-right">作者：</div>
+                <div>{{book.author}}</div>
+            </div>
+
+            <div class="mb-4">
+                <div class="float-left w-24 text-right">语言：</div>
+                <div>{{book.language}}</div>
+            </div>
+
+            <div class="mb-4">
+                <div class="float-left w-24 text-right">出版年份：</div>
+                <div>{{book.publishYear}}</div>
+            </div>
+
+            <div class="mb-4">
+                <div class="float-left w-24 text-right">编程语言：</div>
+                <div>{{book.language}}</div>
+            </div>
+        </div>
+    </div>
+</div>
