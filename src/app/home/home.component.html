@@ -23,7 +23,7 @@
         <ul class="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
             <li *ngFor="let book of books" class="my-3">
                 <a routerLink="/e_book/{{book.id}}">
-                    <img src="https://jiangshanmeta.github.io/spider-banshujiang/images/{{book.id}}.jpeg" />
+                    <img src="{{book.id | bookId2ImgUrl}}" />
                 </a>
                 <div class="mt-2 text-center text-xs">{{book.title}}</div>
             </li>
