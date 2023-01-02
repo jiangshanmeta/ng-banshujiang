@@ -1,1 +1,32 @@
-<p>book-list works!</p>
+<div class="container mx-auto py-4">
+    <div>
+        <div *ngFor="let book of books | paginate: { itemsPerPage: 10, currentPage: currentPage }" class="mb-4 flex flex-row border border-solid border-slate-200">
+            <div class="basis-1/6">
+                <img src="https://jiangshanmeta.github.io/spider-banshujiang/images/{{book.id}}.jpeg" />
+            </div>
+            <div class="flex-auto pt-4 pl-4 text-base">
+                <div class="mb-2">
+                    <div class="float-left mr-2 text-slate-400">书名:</div>
+                    <div class="font-bold"><a routerLink="/e_book/{{book.id}}" class="cursor-pointer text-sky-500">{{book.title}}</a></div>
+                </div>
+
+                <div class="mb-2">
+                    <div class="float-left mr-2 text-slate-400">作者:</div>
+                    <div class="font-medium">{{book.author}}</div>
+                </div>
+
+                <div class="mb-2">
+                    <div class="float-left mr-2 text-slate-400">语言:</div>
+                    <div class="font-medium">{{book.language}}</div>
+                </div>
+
+                <div class="mb-2">
+                    <div class="float-left mr-2 text-slate-400">出版年份:</div>
+                    <div class="font-medium">{{book.publishYear}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
