@@ -1,7 +1,7 @@
 <div class="container mx-auto py-4">
     <div>
         <div *ngFor="let book of books | paginate: { itemsPerPage: 10, currentPage: currentPage }" class="mb-4 flex flex-row border border-solid border-slate-200">
-            <div class="basis-1/6">
+            <div class="w-32">
                 <img src="https://jiangshanmeta.github.io/spider-banshujiang/images/{{book.id}}.jpeg" />
             </div>
             <div class="flex-auto pt-4 pl-4 text-base">

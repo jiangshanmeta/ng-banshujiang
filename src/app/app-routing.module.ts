@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
+import { BookCategoryComponent } from './book-category/book-category.component'
 import { BookDetailComponent } from './book-detail/book-detail.component'
-import { BookListComponent } from './book-list/book-list.component'
+import { BooksComponent } from './books/books.component'
 
 import { HomeComponent } from './home/home.component'
 
@@ -16,8 +17,12 @@ const routes: Routes = [
         component: BookDetailComponent
     },
     {
-        path: 'bookList',
-        component: BookListComponent
+        path: 'books',
+        component: BooksComponent
+    },
+    {
+        path: 'category/:categoryMainType/:categorySubType',
+        component: BookCategoryComponent
     }
 ]
 
