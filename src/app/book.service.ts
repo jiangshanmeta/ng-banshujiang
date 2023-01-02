@@ -21,10 +21,11 @@ export interface Book {
     providedIn: 'root'
 })
 export class BookService {
+    private baseUrl = 'https://jiangshanmeta.github.io/spider-banshujiang/'
     constructor(private http: HttpClient) {}
 
     getAllBooks() {
-        return this.http.get<Book[]>('https://jiangshanmeta.github.io/spider-banshujiang/books.json')
+        return this.http.get<Book[]>(`${this.baseUrl}books.json`)
     }
 
     getBook(bookId: number) {
@@ -32,7 +33,7 @@ export class BookService {
     }
 
     getBookCategories() {
-        return this.http.get<Record<string, number[]>>('https://jiangshanmeta.github.io/spider-banshujiang/bookCategory.json')
+        return this.http.get<Record<string, number[]>>(`${this.baseUrl}bookCategory.json`)
     }
 
     getBookIdByCategory(category: string) {

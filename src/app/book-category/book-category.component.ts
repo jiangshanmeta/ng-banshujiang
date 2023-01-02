@@ -7,7 +7,9 @@ import { forkJoin } from 'rxjs'
 @Component({
     selector: 'app-book-category',
     templateUrl: './book-category.component.html',
-    styleUrls: ['./book-category.component.css']
+    styleUrls: [
+        './book-category.component.css'
+    ]
 })
 export class BookCategoryComponent implements OnInit {
     books: Book[] = []

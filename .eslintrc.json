@@ -13,7 +13,7 @@
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
-        "plugin:prettier/recommended"
+        "plugin:tailwindcss/recommended"
       ],
       "rules": {
         "@angular-eslint/directive-selector": [
@@ -35,7 +35,10 @@
         "object-curly-spacing": [
           "error",
           "always"
-        ]
+        ],
+        "indent": ["error", 4],
+        "array-element-newline": ["error","always"],
+        "array-bracket-newline": ["error",{"minItems":1}]
       }
     },
     {
@@ -44,9 +47,12 @@
       ],
       "extends": [
         "plugin:@angular-eslint/template/recommended",
-        "plugin:prettier/recommended"
+        "plugin:tailwindcss/recommended"
       ],
       "rules": {}
     }
-  ]
+  ],
+  "rules": {
+    "max-len":["error",{"code":120}]
+  }
 }

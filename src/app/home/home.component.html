@@ -6,7 +6,10 @@
                 <div class="my-1.5 flex-none basis-24">{{ category.label }}</div>
                 <div>
                     <ul class="flex flex-row flex-wrap">
-                        <li *ngFor="let tag of category.tags" class="my-1.5 border-l border-solid border-slate-400 px-2">
+                        <li 
+                            *ngFor="let tag of category.tags" 
+                            class="my-1.5 border-l border-solid border-slate-400 px-2"
+                        >
                             <a routerLink="{{ tag.url }}" class="text-sky-500">{{ tag.label }}</a>
                         </li>
                     </ul>

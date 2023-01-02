@@ -14,9 +14,24 @@ import { BookListComponent } from './book-list/book-list.component'
 import { BookId2ImgUrlPipe } from './book-id2-img-url.pipe'
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, BooksComponent, BookDetailComponent, BookCategoryComponent, BookListComponent, BookId2ImgUrlPipe],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgxPaginationModule],
+    declarations: [
+        AppComponent,
+        HomeComponent, 
+        BooksComponent, 
+        BookDetailComponent, 
+        BookCategoryComponent, 
+        BookListComponent, 
+        BookId2ImgUrlPipe
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        NgxPaginationModule
+    ],
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [
+        AppComponent
+    ]
 })
 export class AppModule {}
