@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { Book, BookService } from '../book.service'
+import { Book, BookId, BookService } from '../book.service'
 
 import { forkJoin } from 'rxjs'
 
@@ -41,7 +41,7 @@ export class BookCategoryComponent implements OnInit {
             books: this.bookService.getAllBooks(),
             bookIds: this.bookService.getBookIdByCategory(categorySubType)
         }).subscribe(({ books, bookIds }) => {
-            const bookMap = books.reduce<Record<string, Book>>((acc, item) => {
+            const bookMap = books.reduce<Record<BookId, Book>>((acc, item) => {
                 acc[item.id] = item
                 return acc
             }, {})

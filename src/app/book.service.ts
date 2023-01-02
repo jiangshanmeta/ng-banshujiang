@@ -3,8 +3,12 @@ import { HttpClient } from '@angular/common/http'
 
 import { map } from 'rxjs'
 
+export type BookId = number & {
+    readonly __nominal: unique symbol;
+}
+
 export interface Book {
-    id: number
+    id: BookId
     title: string
     img: string
     author: string
@@ -33,7 +37,7 @@ export class BookService {
     }
 
     getBookCategories() {
-        return this.http.get<Record<string, number[]>>(`${this.baseUrl}bookCategory.json`)
+        return this.http.get<Record<string, BookId[]>>(`${this.baseUrl}bookCategory.json`)
     }
 
     getBookIdByCategory(category: string) {
