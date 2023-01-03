@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
+import { Observable, of } from 'rxjs'
 import { Book, BookService } from '../book.service'
 import { CategoryItem, CategoryService } from '../category.service'
 
@@ -11,15 +12,13 @@ import { CategoryItem, CategoryService } from '../category.service'
     ]
 })
 export class HomeComponent implements OnInit {
-    categories: CategoryItem[] = []
+    categories$: Observable<CategoryItem[]> = of([])
     books: Book[] = []
 
     constructor(private categoryService: CategoryService, private bookService: BookService, private router: Router) {}
 
     ngOnInit(): void {
-        this.categoryService.getCategories().subscribe((categories) => {
-            this.categories = categories
-        })
+        this.categories$ = this.categoryService.getCategories()
 
         this.bookService.getAllBooks().subscribe((books) => {
             this.books = books.slice(-16).reverse()
