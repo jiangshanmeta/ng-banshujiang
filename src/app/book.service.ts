@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core'
+import { Injectable,Inject } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 
 import { map } from 'rxjs'
+import { API_URL } from './app.config';
 
 export type BookId = number & {
     readonly __nominal: unique symbol;
@@ -32,11 +33,12 @@ export interface RecommendationItem {
     providedIn: 'root'
 })
 export class BookService {
-    private baseUrl = 'https://jiangshanmeta.github.io/spider-banshujiang/'
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, @Inject(API_URL) private api_url:string ) {
+
+    }
 
     getAllBooks() {
-        return this.http.get<Book[]>(`${this.baseUrl}books.json`)
+        return this.http.get<Book[]>(`${this.api_url}books.json`)
     }
 
     getBook(bookId: BookId) {
@@ -44,7 +46,7 @@ export class BookService {
     }
 
     getBookCategories() {
-        return this.http.get<Record<string, BookId[]>>(`${this.baseUrl}bookCategory.json`)
+        return this.http.get<Record<string, BookId[]>>(`${this.api_url}bookCategory.json`)
     }
 
     getBookIdByCategory(category: string) {
@@ -53,7 +55,7 @@ export class BookService {
 
 
     getAllRecommendations(){
-        return this.http.get<RecommendationItem[]>(`${this.baseUrl}recommendation.json`)
+        return this.http.get<RecommendationItem[]>(`${this.api_url}recommendation.json`)
     }
 
     getRecommendationByBookId(bookId: BookId){
