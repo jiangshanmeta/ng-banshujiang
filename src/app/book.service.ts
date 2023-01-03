@@ -21,6 +21,13 @@ export interface Book {
     }[]
 }
 
+export interface RecommendationItem {
+    id:BookId;
+    recommendations:BookId[];
+}
+
+
+
 @Injectable({
     providedIn: 'root'
 })
@@ -32,7 +39,7 @@ export class BookService {
         return this.http.get<Book[]>(`${this.baseUrl}books.json`)
     }
 
-    getBook(bookId: number) {
+    getBook(bookId: BookId) {
         return this.getAllBooks().pipe(map((books) => books.find((book) => book.id === bookId) || null))
     }
 
@@ -43,4 +50,15 @@ export class BookService {
     getBookIdByCategory(category: string) {
         return this.getBookCategories().pipe(map((res) => res[category] || []))
     }
+
+
+    getAllRecommendations(){
+        return this.http.get<RecommendationItem[]>(`${this.baseUrl}recommendation.json`)
+    }
+
+    getRecommendationByBookId(bookId: BookId){
+        return this.getAllRecommendations().pipe(map(res=>res.find(item=>item.id === bookId)?.recommendations || [] ))
+    }
+
+
 }

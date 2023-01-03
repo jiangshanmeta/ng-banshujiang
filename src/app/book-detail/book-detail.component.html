@@ -21,10 +21,7 @@
                 <div>{{book.publishYear}}</div>
             </div>
 
-            <div class="mb-4">
-                <div class="float-left w-24 text-right">编程语言：</div>
-                <div>{{book.language}}</div>
-            </div>
+
         </div>
     </div>
 
@@ -32,4 +29,22 @@
         <div *ngIf="loading; else notFound">Loading</div>
         <ng-template #notFound>Not Found</ng-template>
     </ng-template>
+
+
+    <div *ngIf="books.length" class="border border-solid border-slate-200">
+        <div class="mb-1 flex flex-row justify-between border-b border-solid border-slate-200 py-1 pl-6 shadow">
+            <span>相关推荐</span>
+        </div>
+        <ul class="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+            <li *ngFor="let book of books" class="my-3">
+                <a routerLink="/e_book/{{book.id}}">
+                    <img src="{{book.id | bookId2ImgUrl}}" />
+                </a>
+                <div class="mt-2 text-center text-xs">{{book.title}}</div>
+            </li>
+        </ul>
+    </div>
+
+
 </div>
+
