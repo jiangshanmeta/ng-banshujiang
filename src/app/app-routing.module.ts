@@ -23,6 +23,10 @@ const routes: Routes = [
     {
         path: 'category/:categoryMainType/:categorySubType',
         component: BookCategoryComponent
+    },
+    {
+        path: '**',
+        redirectTo: ''
     }
 ]
 
