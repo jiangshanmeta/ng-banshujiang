@@ -2,7 +2,7 @@
     <div>
         <div 
             *ngFor="let book of books | paginate: { itemsPerPage: 10, currentPage: currentPage }" 
-            class="mb-4 flex flex-row border border-solid border-slate-200"
+            class="mb-4 flex flex-row border border-solid border-slate-200 dark:border-slate-50/[0.06]"
         >
             <div class="w-32">
                 <img src="{{book.id | bookId2ImgUrl}}" />
