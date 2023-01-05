@@ -2,7 +2,7 @@ import { Injectable,Inject } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 
 import { map } from 'rxjs'
-import { API_URL } from './app.config';
+import { API_URL } from './app.config'
 
 export type BookId = number & {
     readonly __nominal: unique symbol;

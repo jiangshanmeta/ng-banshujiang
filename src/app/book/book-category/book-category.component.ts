@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { Book, BookId, BookService } from '../book.service'
+import { Book, BookId, BookService } from '../../book.service'
 
 import { forkJoin } from 'rxjs'
 

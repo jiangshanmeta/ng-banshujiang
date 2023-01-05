@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
 
 export type Theme = 'light' | 'dark'
 
@@ -8,15 +8,15 @@ const themeLocalStorageKey = 'theme'
     providedIn: 'root'
 })
 export class ThemeService {
-    private _theme:Theme  = 'light';
+    private _theme:Theme  = 'light'
 
     get theme(){
         return this._theme
     }
 
     constructor() {
-        const localTheme = localStorage.getItem(themeLocalStorageKey) || 'light';
-        this._theme = localTheme as Theme;
+        const localTheme = localStorage.getItem(themeLocalStorageKey) || 'light'
+        this._theme = localTheme as Theme
         this.setHTMLTheme()
     }
 
@@ -30,10 +30,10 @@ export class ThemeService {
 
     toggle(){
         if(this._theme === 'dark'){
-            this._theme = 'light';
+            this._theme = 'light'
             localStorage.setItem(themeLocalStorageKey,'light')
         }else{
-            this._theme = 'dark';
+            this._theme = 'dark'
             localStorage.setItem(themeLocalStorageKey,'dark')
         }
         this.setHTMLTheme()

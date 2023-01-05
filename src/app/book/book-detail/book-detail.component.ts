@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { forkJoin } from 'rxjs'
-import { Book, BookId, BookService } from '../book.service'
+import { Book, BookId, BookService } from '../../book.service'
 
 @Component({
     selector: 'app-book-detail',
@@ -13,14 +13,14 @@ import { Book, BookId, BookService } from '../book.service'
 export class BookDetailComponent implements OnInit {
     loading = true
     book: Book | null = null
-    books:Book[] = [];
+    books:Book[] = []
     constructor(private route: ActivatedRoute, private bookService: BookService) {}
 
     ngOnInit(): void {
 
         this.route.paramMap.subscribe((paramMap)=>{
-            this.loading = true;
-            const bookId = Number(paramMap.get('bookId')) as BookId;
+            this.loading = true
+            const bookId = Number(paramMap.get('bookId')) as BookId
             this.bookService.getBook(bookId).subscribe((book) => {
                 this.book = book
                 this.loading = false
@@ -38,7 +38,7 @@ export class BookDetailComponent implements OnInit {
     
                 this.books = bookIds.map((bookId) => bookMap[bookId]).filter((item) => item)
             })
-        });
+        })
         
 
     }

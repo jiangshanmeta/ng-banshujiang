@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ThemeService } from '../theme.service';
+import { Component } from '@angular/core'
+import { ThemeService } from '../theme.service'
 
 @Component({
     selector: 'app-nav',
