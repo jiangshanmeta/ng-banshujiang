@@ -26,6 +26,6 @@ export class HomeComponent implements OnInit {
     }
 
     gotoBookList() {
-        this.router.navigateByUrl('/books')
+        this.router.navigateByUrl('/book/books')
     }
 }

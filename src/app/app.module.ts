@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { BookModule } from './book/book.module'
 import { AppRoutingModule } from './app-routing.module'
+import { ShareModule } from './share/share.module'
 
 import { AppComponent } from './app.component'
 import { HomeComponent } from './home/home.component'
@@ -22,6 +23,7 @@ import { NavComponent } from './nav/nav.component'
         BookModule,
         AppRoutingModule,
         HttpClientModule,
+        ShareModule,
     ],
     providers: [
         {

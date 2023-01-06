@@ -10,24 +10,21 @@ import { BooksComponent } from './books/books.component'
 import { BookDetailComponent } from './book-detail/book-detail.component'
 import { BookCategoryComponent } from './book-category/book-category.component'
 
-import { BookId2ImgUrlPipe } from './book-id2-img-url.pipe'
+import { ShareModule } from '../share/share.module'
 
 @NgModule({
     declarations: [
         BookListComponent,
         BooksComponent,
         BookDetailComponent, 
-        BookCategoryComponent, 
-        
-        BookId2ImgUrlPipe
+        BookCategoryComponent,
     ],
     imports: [
         CommonModule,
         BookRoutingModule,
-        NgxPaginationModule
+        NgxPaginationModule,
+        ShareModule,
     ],
-    exports: [
-        BookId2ImgUrlPipe
-    ]
+
 })
 export class BookModule { }
