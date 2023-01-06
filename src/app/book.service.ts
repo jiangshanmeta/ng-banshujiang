@@ -15,6 +15,7 @@ export interface Book {
     author: string
     language: string
     publishYear: number
+    programLanguage: string;
     formats: {
         fmt: string
         title: string

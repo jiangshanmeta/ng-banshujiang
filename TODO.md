@@ -8,4 +8,5 @@
 * README.md
 * 分页组件的样式
 * ~~header~~
-* module异步
+* ~~module异步~~
+* rxjs相关优化

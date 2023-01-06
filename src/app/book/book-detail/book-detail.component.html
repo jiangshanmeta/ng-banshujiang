@@ -25,6 +25,10 @@
                 <div>{{book.publishYear}}</div>
             </div>
 
+            <div class="mb-4" *ngIf="book.programLanguage">
+                <div class="float-left w-24 text-right">编程语言：</div>
+                <div>{{book.programLanguage}}</div>
+            </div>
 
         </div>
     </div>
