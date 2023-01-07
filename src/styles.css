@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-.ngx-pagination{
-    display:flex;
-    justify-content:center;
+.ngx-pagination {
+    display: flex;
+    justify-content: center;
 }
 
 .dark .ngx-pagination a {
