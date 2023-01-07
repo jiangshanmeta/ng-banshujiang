@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component'
 
 import { API_URL } from './app.config'
 import { NavComponent } from './nav/nav.component'
+import { httpInterceptorProviders } from './http-interceptors'
+import { RequestCache, RequestCacheService } from './request-cache.service'
 
 @NgModule({
     declarations: [
@@ -29,7 +31,12 @@ import { NavComponent } from './nav/nav.component'
         {
             provide:API_URL,
             useValue:'https://jiangshanmeta.github.io/spider-banshujiang/'
-        }
+        },
+        { 
+            provide: RequestCache, 
+            useClass: RequestCacheService 
+        },
+        httpInterceptorProviders
     ],
     bootstrap: [
         AppComponent

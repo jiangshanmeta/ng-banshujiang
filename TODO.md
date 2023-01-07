@@ -5,8 +5,10 @@
 * ~~分类列表页面~~
 * ~~所有列表页面~~
 * ~~dark mode~~
-* README.md
-* 分页组件的样式
 * ~~header~~
 * ~~module异步~~
+* ~~拦截器缓存~~
 * rxjs相关优化
+* README.md
+* 分页组件的样式
+* i18n
