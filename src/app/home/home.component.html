@@ -23,8 +23,11 @@
         <div
             class="mb-1 flex flex-row justify-between border-b border-solid border-slate-200  py-1 pl-6 shadow dark:border-slate-50/[0.06]"
         >
-            <span>最新更新</span>
-            <span class="mr-4 cursor-pointer text-sky-500" (click)="gotoBookList()">更多&gt;&gt;</span>
+            <span i18n>最新更新</span>
+            <span class="mr-4 cursor-pointer text-sky-500" (click)="gotoBookList()">
+                <ng-container i18n>更多</ng-container>
+                &gt;&gt;
+            </span>
         </div>
         <ul class="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
             <li *ngFor="let book of books" class="my-3">

@@ -9,24 +9,36 @@
             </div>
             <div class="flex-auto pt-4 pl-4 text-base">
                 <div class="mb-2">
-                    <div class="float-left mr-2 text-slate-400">书名:</div>
+                    <div class="float-left mr-2 text-slate-400">
+                        <ng-container i18n>书名</ng-container>
+                        :
+                    </div>
                     <div class="font-bold">
                         <a routerLink="/book/e_book/{{book.id}}" class="cursor-pointer text-sky-500">{{book.title}}</a>
                     </div>
                 </div>
 
                 <div class="mb-2">
-                    <div class="float-left mr-2 text-slate-400">作者:</div>
+                    <div class="float-left mr-2 text-slate-400">
+                        <ng-container i18n>作者</ng-container>
+                        :
+                    </div>
                     <div class="font-medium">{{book.author}}</div>
                 </div>
 
                 <div class="mb-2">
-                    <div class="float-left mr-2 text-slate-400">语言:</div>
+                    <div class="float-left mr-2 text-slate-400">
+                        <ng-container i18n>语言</ng-container>
+                        :
+                    </div>
                     <div class="font-medium">{{book.language}}</div>
                 </div>
 
                 <div class="mb-2">
-                    <div class="float-left mr-2 text-slate-400">出版年份:</div>
+                    <div class="float-left mr-2 text-slate-400">
+                        <ng-container i18n>出版年份</ng-container>
+                        :
+                    </div>
                     <div class="font-medium">{{book.publishYear}}</div>
                 </div>
             </div>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="zh" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="6512336244223035617" datatype="html">
+        <source>作者</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-detail/book-detail.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-list/book-list.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="720166362468454188" datatype="html">
+        <source>语言</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-detail/book-detail.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-list/book-list.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4502875453135062657" datatype="html">
+        <source>出版年份</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-detail/book-detail.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-list/book-list.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="871449186958508776" datatype="html">
+        <source>编程语言</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-detail/book-detail.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4307930494288328890" datatype="html">
+        <source>相关推荐</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-detail/book-detail.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6995365319934172677" datatype="html">
+        <source>书名</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/book/book-list/book-list.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3577907731565722475" datatype="html">
+        <source>最新更新</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7767555902779091213" datatype="html">
+        <source>更多</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/home/home.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7304804787084703335" datatype="html">
+        <source>首页</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav/nav.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1552160247567831384" datatype="html">
+        <source>所有书籍</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav/nav.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

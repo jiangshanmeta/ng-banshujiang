@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-path dist   --base-href /ng-banshujiang/",
+    "start:en": "ng serve --configuration=en",
+    "build": "ng build --output-path dist   --base-href /ng-banshujiang/ --localize",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "eslint ./src --fix",
@@ -34,6 +35,7 @@
     "@angular-eslint/template-parser": "15.1.0",
     "@angular/cli": "~15.0.4",
     "@angular/compiler-cli": "^15.0.0",
+    "@angular/localize": "^15.0.4",
     "@types/jasmine": "~4.3.0",
     "@typescript-eslint/eslint-plugin": "5.44.0",
     "@typescript-eslint/parser": "5.44.0",

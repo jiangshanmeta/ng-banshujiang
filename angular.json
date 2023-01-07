@@ -4,6 +4,14 @@
   "newProjectRoot": "projects",
   "projects": {
     "ng-banshujiang": {
+      "i18n": {
+        "sourceLocale":"zh",
+        "locales": {
+          "en":{
+            "translation": "src/locale/messages.en.xlf"
+          }
+        }
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,6 +21,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": true,
             "outputPath": "dist/ng-banshujiang",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -30,6 +39,9 @@
             "scripts": []
           },
           "configurations": {
+            "en":{
+              "localize": ["en"]
+            },
             "production": {
               "budgets": [
                 {
@@ -51,7 +63,8 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "localize": ["zh"]
             }
           },
           "defaultConfiguration": "production"
@@ -59,6 +72,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "en": {
+              "browserTarget": "ng-banshujiang:build:development,en"
+            },
             "production": {
               "browserTarget": "ng-banshujiang:build:production"
             },
