@@ -9,7 +9,7 @@ describe('NavComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [
-                NavComponent 
+                NavComponent
             ]
         })
             .compileComponents()

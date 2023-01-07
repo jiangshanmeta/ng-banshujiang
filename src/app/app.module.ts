@@ -17,7 +17,7 @@ import { RequestCache, RequestCacheService } from './request-cache.service'
 @NgModule({
     declarations: [
         AppComponent,
-        HomeComponent, 
+        HomeComponent,
         NavComponent
     ],
     imports: [
@@ -32,9 +32,9 @@ import { RequestCache, RequestCacheService } from './request-cache.service'
             provide:API_URL,
             useValue:'https://jiangshanmeta.github.io/spider-banshujiang/'
         },
-        { 
-            provide: RequestCache, 
-            useClass: RequestCacheService 
+        {
+            provide: RequestCache,
+            useClass: RequestCacheService
         },
         httpInterceptorProviders
     ],

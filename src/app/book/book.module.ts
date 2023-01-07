@@ -16,7 +16,7 @@ import { ShareModule } from '../share/share.module'
     declarations: [
         BookListComponent,
         BooksComponent,
-        BookDetailComponent, 
+        BookDetailComponent,
         BookCategoryComponent,
     ],
     imports: [

@@ -4,9 +4,9 @@ import { CachingInterceptor } from './caching-interceptor'
 
 
 export const httpInterceptorProviders = [
-    { 
+    {
         provide: HTTP_INTERCEPTORS,
         useClass: CachingInterceptor,
-        multi: true 
+        multi: true
     },
 ]
