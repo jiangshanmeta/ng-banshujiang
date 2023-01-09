@@ -10,6 +10,6 @@ export class BookId2ImgUrlPipe implements PipeTransform {
     }
 
     transform(value: number) {
-        return `${this.api_url}/images/${value}.jpeg`
+        return `${this.api_url}images/${value}.jpeg`
     }
 }

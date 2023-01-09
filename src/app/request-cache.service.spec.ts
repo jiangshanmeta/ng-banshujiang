@@ -6,11 +6,15 @@ describe('RequestCacheService', () => {
     let service: RequestCacheService
 
     beforeEach(() => {
-        TestBed.configureTestingModule({})
+        TestBed.configureTestingModule({
+            providers:[
+                RequestCacheService
+            ]
+        })
         service = TestBed.inject(RequestCacheService)
     })
 
-    it('should be created', () => {
+    it('should be created ', () => {
         expect(service).toBeTruthy()
     })
 })

@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "npm run lint:es && npm run lint:css",
-    "lint:es": "eslint ./src --fix",
+    "lint:es": "ng lint",
     "lint:css": "stylelint \"src/**/*.css\" --fix ",
     "prepare": "husky install"
   },
