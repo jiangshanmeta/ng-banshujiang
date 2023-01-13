@@ -6,7 +6,7 @@
             <a routerLink="/book/books" class="text-sky-500" i18n>所有书籍</a>
         </div>
         <div class="flex items-center">
-            <div class="cursor-pointer" (click)="themeService.toggle()">
+            <div class="cursor-pointer" (click)="themeService.toggle()" id="nav-theme-container">
                 <svg
                     *ngIf="themeService.theme === 'light'"
                     viewBox="0 0 24 24" 
@@ -15,6 +15,7 @@
                     stroke-linecap="round" 
                     stroke-linejoin="round" 
                     class="h-6 w-6"
+                    id="nav-theme-light"
                 >
                     <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" class="fill-sky-400/20 stroke-sky-500"></path>
                     <path
@@ -28,6 +29,7 @@
                     viewBox="0 0 24 24" 
                     fill="none" 
                     class="h-6 w-6"
+                    id="nav-theme-dark"
                 >
                     <path 
                         fill-rule="evenodd" 

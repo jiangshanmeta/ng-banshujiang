@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
-import { Observable, of } from 'rxjs'
+import { map, Observable, of } from 'rxjs'
 import { Book, BookService } from '../book.service'
 import { CategoryItem, CategoryService } from '../category.service'
 
@@ -13,16 +13,16 @@ import { CategoryItem, CategoryService } from '../category.service'
 })
 export class HomeComponent implements OnInit {
     categories$: Observable<CategoryItem[]> = of([])
-    books: Book[] = []
+
+    books$: Observable<Book[]> = of([])
 
     constructor(private categoryService: CategoryService, private bookService: BookService, private router: Router) {}
 
     ngOnInit(): void {
         this.categories$ = this.categoryService.getCategories()
-
-        this.bookService.getAllBooks().subscribe((books) => {
-            this.books = books.slice(-16).reverse()
-        })
+        this.books$ = this.bookService.getAllBooks().pipe(
+            map(books=>books.slice(-16).reverse() )
+        )
     }
 
     gotoBookList() {
