@@ -7,7 +7,7 @@ describe('RequestCacheService', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            providers:[
+            providers: [
                 RequestCacheService
             ]
         })

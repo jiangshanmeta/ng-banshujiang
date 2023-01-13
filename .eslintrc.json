@@ -55,7 +55,7 @@
   ],
   "rules": {
     "max-len":["error",{"code":120}],
-    "semi": ["error","never"]
-    
+    "semi": ["error","never"],
+    "key-spacing":["error"]
   }
 }

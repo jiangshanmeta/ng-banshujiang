@@ -12,7 +12,7 @@ describe('AppComponent', () => {
             declarations: [
                 AppComponent
             ],
-            schemas:[
+            schemas: [
                 NO_ERRORS_SCHEMA
             ]
         }).compileComponents()

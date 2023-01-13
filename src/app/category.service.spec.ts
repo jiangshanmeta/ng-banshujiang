@@ -14,7 +14,7 @@ describe('CategoryService', () => {
             'get'
         ])
         TestBed.configureTestingModule({
-            providers:[
+            providers: [
                 {
                     provide: HttpClient,
                     useValue: spy
@@ -66,7 +66,7 @@ describe('CategoryService', () => {
         httpClientSpy.get.and.returnValue(asyncData(expectedCategory))
 
         service.getCategories().subscribe({
-            next:(categories)=>{
+            next: (categories)=>{
                 expect(categories)
                     .withContext('expected categories')
                     .toEqual(expectedCategory)
@@ -78,7 +78,7 @@ describe('CategoryService', () => {
 
                 done()
             },
-            error:done.fail
+            error: done.fail
         })
 
 

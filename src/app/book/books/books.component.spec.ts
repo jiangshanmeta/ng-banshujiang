@@ -58,7 +58,7 @@ describe('BooksComponent', () => {
                 BookListStubComponent,
                 BooksComponent
             ],
-            providers:[
+            providers: [
                 {
                     provide: BookService,
                     useValue: jasmine.createSpyObj('BookService', [

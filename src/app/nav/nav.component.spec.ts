@@ -20,7 +20,7 @@ describe('NavComponent', () => {
                 NavComponent,
                 RouterLinkDirectiveStub
             ],
-            providers:[
+            providers: [
                 {
                     provide: ThemeService,
                     useValue: jasmine.createSpyObj('ThemeService', [

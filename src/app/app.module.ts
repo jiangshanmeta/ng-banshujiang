@@ -29,8 +29,8 @@ import { RequestCache, RequestCacheService } from './request-cache.service'
     ],
     providers: [
         {
-            provide:API_URL,
-            useValue:'https://jiangshanmeta.github.io/spider-banshujiang/'
+            provide: API_URL,
+            useValue: 'https://jiangshanmeta.github.io/spider-banshujiang/'
         },
         {
             provide: RequestCache,

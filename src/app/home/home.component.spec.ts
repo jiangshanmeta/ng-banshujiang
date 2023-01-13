@@ -100,10 +100,10 @@ describe('HomeComponent', () => {
                 RouterLinkDirectiveStub,
                 HomeComponent
             ],
-            providers:[
+            providers: [
                 {
                     provide: CategoryService,
-                    useValue:  jasmine.createSpyObj('CategoryService', [
+                    useValue: jasmine.createSpyObj('CategoryService', [
                         'getCategories'
                     ])
                 },
@@ -115,7 +115,7 @@ describe('HomeComponent', () => {
                 },
                 {
                     provide: Router,
-                    useValue:   jasmine.createSpyObj('Router', [
+                    useValue: jasmine.createSpyObj('Router', [
                         'navigateByUrl'
                     ])
                 }
@@ -158,7 +158,7 @@ describe('HomeComponent', () => {
 
         it('test component handle books from bookService',(done)=>{
             component.books$.subscribe({
-                next:(books)=>{
+                next: (books)=>{
 
                     expect(books).toEqual([
                         {
@@ -199,7 +199,7 @@ describe('HomeComponent', () => {
 
                     done()
                 },
-                error:done.fail
+                error: done.fail
             })
 
 

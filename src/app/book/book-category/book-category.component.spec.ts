@@ -55,7 +55,7 @@ describe('BookCategoryComponent', () => {
             declarations: [
                 BookCategoryComponent
             ],
-            providers:[
+            providers: [
                 {
                     provide: BookService,
                     useValue: jasmine.createSpyObj('BookService', [
@@ -63,14 +63,14 @@ describe('BookCategoryComponent', () => {
                     ])
                 },
                 {
-                    provide:ActivatedRoute,
+                    provide: ActivatedRoute,
                     useValue: new ActivatedRouteStub({
-                        categoryMainType:'language',
+                        categoryMainType: 'language',
                         categorySubType: 'TypeScript'
                     })
                 }
             ],
-            schemas:[
+            schemas: [
                 NO_ERRORS_SCHEMA
             ]
         }).compileComponents()

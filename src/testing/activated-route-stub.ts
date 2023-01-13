@@ -25,7 +25,7 @@ export class ActivatedRouteStub {
             has(name){
                 return name in initialParams
             },
-            keys:Object.keys(initialParams),
+            keys: Object.keys(initialParams),
             getAll(){
                 return []
             }

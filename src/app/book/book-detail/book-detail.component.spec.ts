@@ -14,11 +14,11 @@ describe('BookDetailComponent', () => {
             declarations: [
                 BookDetailComponent
             ],
-            providers:[
+            providers: [
                 {
                     provide: ActivatedRoute,
                     useValue: new ActivatedRouteStub({
-                        bookId:'1'
+                        bookId: '1'
                     })
                 },
                 {
