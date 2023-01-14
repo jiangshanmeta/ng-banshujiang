@@ -80,4 +80,43 @@ describe('BooksComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy()
     })
+
+    it('should reverse books received from bookService',()=>{
+        expect(bookService.getAllBooks.calls.count()).toBe(1)
+        expect(component.books).toEqual([
+            {
+                "id": 2 as BookId,
+                "title": "JavaScript Patterns",
+                "img": "https://imagebsj.netlify.app/2.jpeg",
+                "author": "Stoyan Stefanov",
+                "language": "英文",
+                "publishYear": 2010,
+                "programLanguage": "JavaScript",
+                "formats": [
+                    {
+                        "fmt": "PDF",
+                        "title": "城通网盘",
+                        "link": "/e_books/2/webstorage_links/13521/to_link"
+                    }
+                ]
+            },
+
+            {
+                "id": 1 as BookId,
+                "title": "JavaScript Cookbook",
+                "img": "https://imagebsj.netlify.app/1.jpeg",
+                "author": "Shelly Powers",
+                "language": "英文",
+                "publishYear": 2010,
+                "programLanguage": "JavaScript",
+                "formats": [
+                    {
+                        "fmt": "PDF",
+                        "title": "城通网盘",
+                        "link": "/e_books/1/webstorage_links/13519/to_link"
+                    }
+                ]
+            },
+        ])
+    })
 })

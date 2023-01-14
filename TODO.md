@@ -8,13 +8,14 @@
 * ~~header~~
 * ~~module异步~~
 * ~~拦截器缓存~~
-* rxjs相关优化
-* README.md
 * ~~分页组件的样式~~
 * ~~i18n~~
-* 测试 基本测试
-* 测试 模板 选择器优化
-* 测试 模板 更多的测试
-* bookCategory C 单元测试太少
-* bookDetail C 单元测试太少
-* eslint rule comma space
+* ~~测试 基本测试~~
+* ~~测试 模板 选择器优化~~
+* ~~测试 模板 更多的测试~~
+* ~~bookCategory C 单元测试太少~~
+* ~~bookDetail C 单元测试太少~~
+* ~~eslint rule colon space~~
+* rxjs相关优化
+* README.md
+* eslint 类型 colon spance

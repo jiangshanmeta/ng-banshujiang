@@ -1,4 +1,4 @@
-import { convertToParamMap, ParamMap, Params } from '@angular/router'
+import { convertToParamMap, ParamMap, Params, } from '@angular/router'
 import { ReplaySubject } from 'rxjs'
 
 /**
@@ -10,26 +10,17 @@ export class ActivatedRouteStub {
     // and pump new values into the `paramMap` observable
     private subject = new ReplaySubject<ParamMap>()
 
-    readonly snapshot = {} as {
-        paramMap: ParamMap
+    readonly snapshot:{
+        paramMap:ParamMap
     }
-
-
+    
+    
     constructor(initialParams: Params = {}) {
         this.setParamMap(initialParams)
-        // TODO better stub
-        this.snapshot.paramMap = {
-            get(name){
-                return initialParams[name] || null
-            },
-            has(name){
-                return name in initialParams
-            },
-            keys: Object.keys(initialParams),
-            getAll(){
-                return []
-            }
+        this.snapshot = {
+            paramMap: convertToParamMap(initialParams)
         }
+        
     }
 
     /** The mock paramMap observable */
