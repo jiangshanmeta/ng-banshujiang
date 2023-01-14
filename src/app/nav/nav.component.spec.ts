@@ -72,9 +72,9 @@ describe('NavComponent', () => {
             setSpyonObjProperty(themeServiceSpy,'theme','light')
     
             fixture.detectChanges()
-    
-            expect(nativeElement.querySelector("#nav-theme-light")).not.toBe(null)
-            expect(nativeElement.querySelector('#nav-theme-dark')).toBe(null)
+            expect(nativeElement.querySelector("[data-testid='nav-theme-light']")).not.toBe(null)
+            expect(nativeElement.querySelector("[data-testid='nav-theme-dark']")).toBe(null)
+
         })
     
         it('should show dark icon when theme is dark',()=>{
@@ -83,8 +83,8 @@ describe('NavComponent', () => {
     
             fixture.detectChanges()
     
-            expect(nativeElement.querySelector("#nav-theme-light")).toBe(null)
-            expect(nativeElement.querySelector('#nav-theme-dark')).not.toBe(null)
+            expect(nativeElement.querySelector("[data-testid='nav-theme-light']")).toBe(null)
+            expect(nativeElement.querySelector("[data-testid='nav-theme-dark']")).not.toBe(null)
         })
     
     
