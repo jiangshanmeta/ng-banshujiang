@@ -13,7 +13,7 @@ import { Book, BookId, BookService } from '../../book.service'
 export class BookDetailComponent implements OnInit {
     loading = true
     book: Book | null = null
-    books:Book[] = []
+    books: Book[] = []
     constructor(private route: ActivatedRoute, private bookService: BookService) {}
 
     ngOnInit(): void {

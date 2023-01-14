@@ -24,8 +24,8 @@ export interface Book {
 }
 
 export interface RecommendationItem {
-    id:BookId;
-    recommendations:BookId[];
+    id: BookId;
+    recommendations: BookId[];
 }
 
 
@@ -34,7 +34,7 @@ export interface RecommendationItem {
     providedIn: 'root'
 })
 export class BookService {
-    constructor(private http: HttpClient, @Inject(API_URL) private api_url:string ) {
+    constructor(private http: HttpClient, @Inject(API_URL) private api_url: string ) {
 
     }
 

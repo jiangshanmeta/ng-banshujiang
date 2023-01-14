@@ -9,7 +9,7 @@ import { ThemeService } from '../theme.service'
     ]
 })
 export class NavComponent {
-    constructor(public themeService:ThemeService){
+    constructor(public themeService: ThemeService){
 
     }
 }

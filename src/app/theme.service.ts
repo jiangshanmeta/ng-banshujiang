@@ -8,7 +8,7 @@ const themeLocalStorageKey = 'theme'
     providedIn: 'root'
 })
 export class ThemeService {
-    private _theme:Theme  = 'light'
+    private _theme: Theme  = 'light'
 
     get theme(){
         return this._theme

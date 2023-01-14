@@ -22,12 +22,12 @@ export class BookId2ImgUrlPipeStub implements PipeTransform {
 describe('HomeComponent', () => {
     let component: HomeComponent
     let fixture: ComponentFixture<HomeComponent>
-    let categoryService : jasmine.SpyObj<CategoryService>
-    let bookService : jasmine.SpyObj<BookService>
+    let categoryService: jasmine.SpyObj<CategoryService>
+    let bookService: jasmine.SpyObj<BookService>
     let router: jasmine.SpyObj<Router>
 
 
-    const expectedCategory:CategoryItem[] = [
+    const expectedCategory: CategoryItem[] = [
         {
             "label": "编程语言",
             "tags": [
@@ -56,7 +56,7 @@ describe('HomeComponent', () => {
         },
     ]
 
-    const expectedBooks:Book[] = [
+    const expectedBooks: Book[] = [
         {
             "id": 1 as BookId,
             "title": "JavaScript Cookbook",

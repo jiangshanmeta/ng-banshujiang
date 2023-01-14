@@ -35,7 +35,7 @@ describe('CategoryService', () => {
 
 
     it('getCategories should work', (done) => {
-        const expectedCategory:CategoryItem[] = [
+        const expectedCategory: CategoryItem[] = [
             {
                 "label": "编程语言",
                 "tags": [

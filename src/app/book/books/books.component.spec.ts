@@ -16,7 +16,7 @@ describe('BooksComponent', () => {
     let fixture: ComponentFixture<BooksComponent>
     let bookService: jasmine.SpyObj<BookService>
 
-    const expectedBooks:Book[] = [
+    const expectedBooks: Book[] = [
         {
             "id": 1 as BookId,
             "title": "JavaScript Cookbook",

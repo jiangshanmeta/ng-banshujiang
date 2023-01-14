@@ -9,7 +9,7 @@ import { BookCategoryComponent } from './book-category.component'
 
 describe('BookCategoryComponent', () => {
 
-    const expectedBooks:Book[] = [
+    const expectedBooks: Book[] = [
         {
             "id": 1 as BookId,
             "title": "JavaScript Cookbook",
@@ -66,10 +66,10 @@ describe('BookCategoryComponent', () => {
         getAllBooks,
         getBookIdByCategory,
         routeParam
-    }:{
-        getAllBooks:ReturnType<BookService['getAllBooks']>,
-        getBookIdByCategory:ReturnType<BookService['getBookIdByCategory']>,
-        routeParam:Params
+    }: {
+        getAllBooks: ReturnType<BookService['getAllBooks']>,
+        getBookIdByCategory: ReturnType<BookService['getBookIdByCategory']>,
+        routeParam: Params
     }){
         await TestBed.configureTestingModule({
             declarations: [

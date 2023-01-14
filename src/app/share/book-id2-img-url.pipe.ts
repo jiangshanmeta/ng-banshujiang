@@ -5,7 +5,7 @@ import { API_URL } from '../app.config'
     name: 'bookId2ImgUrl'
 })
 export class BookId2ImgUrlPipe implements PipeTransform {
-    constructor(@Inject(API_URL) private api_url:string){
+    constructor(@Inject(API_URL) private api_url: string){
 
     }
 

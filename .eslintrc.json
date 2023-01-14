@@ -56,6 +56,7 @@
   "rules": {
     "max-len":["error",{"code":120}],
     "semi": ["error","never"],
-    "key-spacing":["error"]
+    "key-spacing":["error"],
+    "@typescript-eslint/type-annotation-spacing":["error"]
   }
 }

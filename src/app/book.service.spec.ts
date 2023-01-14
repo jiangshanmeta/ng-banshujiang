@@ -36,7 +36,7 @@ describe('BookService', () => {
 
 
     describe('#getAllBooks',()=>{
-        let expectedBooks:Book[] = []
+        let expectedBooks: Book[] = []
         beforeEach(() => {
 
             service = TestBed.inject(BookService)
@@ -95,7 +95,7 @@ describe('BookService', () => {
 
 
     describe('#getBook',()=>{
-        let expectedBooks:Book[] = []
+        let expectedBooks: Book[] = []
         beforeEach(() => {
 
             service = TestBed.inject(BookService)
@@ -170,7 +170,7 @@ describe('BookService', () => {
     })
 
     describe('#getBookCategories',()=>{
-        let expectedBookCategory:Record<string, BookId[]> = {}
+        let expectedBookCategory: Record<string, BookId[]> = {}
         beforeEach(() => {
 
             service = TestBed.inject(BookService)
@@ -221,7 +221,7 @@ describe('BookService', () => {
 
 
     describe('#getBookIdByCategory',()=>{
-        let expectedBookCategory:Record<string, BookId[]> = {}
+        let expectedBookCategory: Record<string, BookId[]> = {}
         beforeEach(() => {
 
             service = TestBed.inject(BookService)
@@ -291,7 +291,7 @@ describe('BookService', () => {
 
 
     describe('#getAllRecommendations',()=>{
-        let expectedRecommendation:RecommendationItem[] = []
+        let expectedRecommendation: RecommendationItem[] = []
         beforeEach(() => {
 
             service = TestBed.inject(BookService)
@@ -361,7 +361,7 @@ describe('BookService', () => {
 
 
     describe('#getRecommendationByBookId',()=>{
-        let expectedRecommendation:RecommendationItem[] = []
+        let expectedRecommendation: RecommendationItem[] = []
         beforeEach(() => {
 
             service = TestBed.inject(BookService)

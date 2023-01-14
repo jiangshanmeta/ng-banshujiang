@@ -10,8 +10,8 @@ export class ActivatedRouteStub {
     // and pump new values into the `paramMap` observable
     private subject = new ReplaySubject<ParamMap>()
 
-    readonly snapshot:{
-        paramMap:ParamMap
+    readonly snapshot: {
+        paramMap: ParamMap
     }
     
     

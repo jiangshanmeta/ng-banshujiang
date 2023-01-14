@@ -13,7 +13,7 @@ import { BookListComponent } from './book-list.component'
 })
 export class PaginatePipeStub implements PipeTransform {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
-    transform<T>(value:T,args:any) {
+    transform<T>(value: T,args: any) {
         return value
     }
 }
