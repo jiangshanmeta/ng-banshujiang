@@ -157,19 +157,19 @@ describe( 'BookDetailComponent', () => {
     } )
 
 
-    describe( '#bookInfo',()=>{
-        it( 'should call bookService getBook',()=>{
+    describe( '#bookInfo', ()=>{
+        it( 'should call bookService getBook', ()=>{
             expect( bookService.getBook.calls.count() ).toBe( 1 )
             expect( bookService.getBook.calls.first().args[0] ).toBe( 1 as BookId )
         } )
 
 
-        it( 'should get bookInfo',()=>{
+        it( 'should get bookInfo', ()=>{
             expect( component.book ).toEqual( book1 )
         } )
     
 
-        it( 'should call bookService to get new book when route change',()=>{
+        it( 'should call bookService to get new book when route change', ()=>{
             routeStub.setParamMap( {
                 bookId: '11'
             } )
@@ -178,7 +178,7 @@ describe( 'BookDetailComponent', () => {
         } )
 
 
-        it( 'should get new book when route change',fakeAsync( ()=>{
+        it( 'should get new book when route change', fakeAsync( ()=>{
             routeStub.setParamMap( {
                 bookId: '11'
             } )
@@ -188,7 +188,7 @@ describe( 'BookDetailComponent', () => {
         } ) )
 
         
-        it( 'should handle book change fast',fakeAsync( ()=>{
+        it( 'should handle book change fast', fakeAsync( ()=>{
             routeStub.setParamMap( {
                 bookId: '11'
             } )
@@ -207,15 +207,15 @@ describe( 'BookDetailComponent', () => {
 
 
 
-    describe( '#recommendation',()=>{
-        it( 'should call service to get recommendation',()=>{
+    describe( '#recommendation', ()=>{
+        it( 'should call service to get recommendation', ()=>{
             expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
             expect( bookService.getRecommendationByBookId.calls.count() ).toBe( 1 )
             expect( bookService.getRecommendationByBookId.calls.first().args[0] ).toBe( 1 as BookId )
         } )
     
 
-        it( 'should get recommendation books',( done )=>{
+        it( 'should get recommendation books', ( done )=>{
     
             component.books$.subscribe( ( books )=>{
                 expect( books ).toEqual( [
@@ -227,7 +227,7 @@ describe( 'BookDetailComponent', () => {
         } )
 
 
-        it( 'should should recommendation books routerLink',()=>{
+        it( 'should should recommendation books routerLink', ()=>{
             const linkDes = fixture.debugElement.queryAll( By.directive( RouterLinkDirectiveStub ) )
             const routerLinks = linkDes.map( de => de.injector.get( RouterLinkDirectiveStub ) )
     
@@ -237,7 +237,7 @@ describe( 'BookDetailComponent', () => {
         } )
     
 
-        it( 'should call service to get new recommendation when route change',()=>{
+        it( 'should call service to get new recommendation when route change', ()=>{
             routeStub.setParamMap( {
                 bookId: '11'
             } )
@@ -248,7 +248,7 @@ describe( 'BookDetailComponent', () => {
         } )
     
 
-        it( 'should get new recommendation when route change',fakeAsync( ()=>{
+        it( 'should get new recommendation when route change', fakeAsync( ()=>{
             routeStub.setParamMap( {
                 bookId: '11'
             } )
@@ -267,7 +267,7 @@ describe( 'BookDetailComponent', () => {
         } ) )
 
 
-        it( 'should get right recommendation when route change fast',fakeAsync( ()=>{
+        it( 'should get right recommendation when route change fast', fakeAsync( ()=>{
             routeStub.setParamMap( {
                 bookId: '11'
             } )

@@ -4,7 +4,7 @@ import {
     HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse
 } from '@angular/common/http'
 
-import { Observable,of,tap } from 'rxjs'
+import { Observable, of, tap } from 'rxjs'
 
 import { RequestCache } from '../request-cache.service'
 

@@ -25,7 +25,7 @@ describe( 'NavComponent', () => {
                     provide: ThemeService,
                     useValue: jasmine.createSpyObj( 'ThemeService', [
                         'toggle'
-                    ],[
+                    ], [
                         'theme'
                     ] )
                 }
@@ -48,7 +48,7 @@ describe( 'NavComponent', () => {
     } )
 
 
-    describe( 'should handle routerLink',()=>{
+    describe( 'should handle routerLink', ()=>{
         let routerLinks: RouterLinkDirectiveStub[]
         let linkDes: DebugElement[]
         beforeEach( ()=>{
@@ -56,7 +56,7 @@ describe( 'NavComponent', () => {
             routerLinks = linkDes.map( de => de.injector.get( RouterLinkDirectiveStub ) )
         } )
 
-        it( 'can get RouterLinks from template',()=>{
+        it( 'can get RouterLinks from template', ()=>{
             expect( routerLinks.length ).toBe( 2 )
             expect( routerLinks[0].linkParams ).toBe( '/' )
             expect( routerLinks[1].linkParams ).toBe( '/book/books' )
@@ -66,10 +66,10 @@ describe( 'NavComponent', () => {
     } )
 
 
-    describe( 'should handle theme',()=>{
-        it( 'should show light icon when theme is light',()=>{
+    describe( 'should handle theme', ()=>{
+        it( 'should show light icon when theme is light', ()=>{
 
-            setSpyonObjProperty( themeServiceSpy,'theme','light' )
+            setSpyonObjProperty( themeServiceSpy, 'theme', 'light' )
     
             fixture.detectChanges()
             expect( nativeElement.querySelector( "[data-testid='nav-theme-light']" ) ).not.toBe( null )
@@ -77,9 +77,9 @@ describe( 'NavComponent', () => {
 
         } )
     
-        it( 'should show dark icon when theme is dark',()=>{
+        it( 'should show dark icon when theme is dark', ()=>{
     
-            setSpyonObjProperty( themeServiceSpy,'theme','dark' )
+            setSpyonObjProperty( themeServiceSpy, 'theme', 'dark' )
     
             fixture.detectChanges()
     
@@ -88,7 +88,7 @@ describe( 'NavComponent', () => {
         } )
     
     
-        it( 'should call themeService toggle method when click',()=>{
+        it( 'should call themeService toggle method when click', ()=>{
     
             const container = nativeElement.querySelector( '#nav-theme-container' ) as HTMLElement
             container.click()

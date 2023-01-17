@@ -1,6 +1,6 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
 import { TestBed } from '@angular/core/testing'
-import { BookService,Book, BookId, RecommendationItem } from './book.service'
+import { BookService, Book, BookId, RecommendationItem } from './book.service'
 import { API_URL } from './app.config'
 
 describe( 'BookService', () => {
@@ -35,7 +35,7 @@ describe( 'BookService', () => {
     } )
 
 
-    describe( '#getAllBooks',()=>{
+    describe( '#getAllBooks', ()=>{
         let expectedBooks: Book[] = []
         beforeEach( () => {
 
@@ -76,7 +76,7 @@ describe( 'BookService', () => {
             ]
         } )
 
-        it( 'should return expected books',()=>{
+        it( 'should return expected books', ()=>{
             service.getAllBooks().subscribe( {
                 next: books => expect( books )
                     .withContext( 'should return expected books' )
@@ -95,7 +95,7 @@ describe( 'BookService', () => {
     } )
 
 
-    describe( '#getBook',()=>{
+    describe( '#getBook', ()=>{
         let expectedBooks: Book[] = []
         beforeEach( () => {
 
@@ -136,7 +136,7 @@ describe( 'BookService', () => {
             ]
         } )
 
-        it( 'get the right book with id',()=>{
+        it( 'get the right book with id', ()=>{
             service.getBook( 1 as BookId ).subscribe( {
                 next: book => expect( book )
                     .withContext( 'should return expected books' )
@@ -152,7 +152,7 @@ describe( 'BookService', () => {
             req.flush( expectedBooks )
         } )
 
-        it( 'handle not found book',()=>{
+        it( 'handle not found book', ()=>{
             service.getBook( 100 as BookId ).subscribe( {
                 next: book => expect( book )
                     .withContext( 'should return expected books' )
@@ -172,7 +172,7 @@ describe( 'BookService', () => {
 
     } )
 
-    describe( '#getBookCategories',()=>{
+    describe( '#getBookCategories', ()=>{
         let expectedBookCategory: Record<string, BookId[]> = {}
         beforeEach( () => {
 
@@ -204,7 +204,7 @@ describe( 'BookService', () => {
             }
         } )
 
-        it( 'should return expected bookCategory',()=>{
+        it( 'should return expected bookCategory', ()=>{
             service.getBookCategories().subscribe( {
                 next: bookCategory  => expect( bookCategory )
                     .withContext( 'should return expected bookCategory' )
@@ -223,7 +223,7 @@ describe( 'BookService', () => {
     } )
 
 
-    describe( '#getBookIdByCategory',()=>{
+    describe( '#getBookIdByCategory', ()=>{
         let expectedBookCategory: Record<string, BookId[]> = {}
         beforeEach( () => {
 
@@ -255,7 +255,7 @@ describe( 'BookService', () => {
             }
         } )
 
-        it( 'get bookIds with correct category',()=>{
+        it( 'get bookIds with correct category', ()=>{
             service.getBookIdByCategory( 'ActionScript' ).subscribe( {
                 next: category => expect( category )
                     .withContext( 'should return expected books' )
@@ -272,7 +272,7 @@ describe( 'BookService', () => {
             req.flush( expectedBookCategory )
         } )
 
-        it( 'handle not found category',()=>{
+        it( 'handle not found category', ()=>{
             service.getBookIdByCategory( 'TypeScript' ).subscribe( {
                 next: category => expect( category )
                     .withContext( 'handle not found category' )
@@ -293,7 +293,7 @@ describe( 'BookService', () => {
     } )
 
 
-    describe( '#getAllRecommendations',()=>{
+    describe( '#getAllRecommendations', ()=>{
         let expectedRecommendation: RecommendationItem[] = []
         beforeEach( () => {
 
@@ -344,7 +344,7 @@ describe( 'BookService', () => {
             ]
         } )
 
-        it( 'should return expected recommendation',()=>{
+        it( 'should return expected recommendation', ()=>{
             service.getAllRecommendations().subscribe( {
                 next: recommendation  => expect( recommendation )
                     .withContext( 'should return expected recommendation' )
@@ -363,7 +363,7 @@ describe( 'BookService', () => {
     } )
 
 
-    describe( '#getRecommendationByBookId',()=>{
+    describe( '#getRecommendationByBookId', ()=>{
         let expectedRecommendation: RecommendationItem[] = []
         beforeEach( () => {
 
@@ -414,7 +414,7 @@ describe( 'BookService', () => {
             ]
         } )
 
-        it( 'get bookIds with correct bookId',()=>{
+        it( 'get bookIds with correct bookId', ()=>{
             service.getRecommendationByBookId( 1 as BookId ).subscribe( {
                 next: recommendation => expect( recommendation )
                     .withContext( 'get bookIds with correct bookId' )
@@ -431,7 +431,7 @@ describe( 'BookService', () => {
             req.flush( expectedRecommendation )
         } )
 
-        it( 'handle not found bookId',()=>{
+        it( 'handle not found bookId', ()=>{
             service.getRecommendationByBookId( 1000 as BookId ).subscribe( {
                 next: recommendation => expect( recommendation )
                     .withContext( 'handle not found category' )

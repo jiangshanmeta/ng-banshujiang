@@ -4,7 +4,7 @@ describe( 'ThemeService', () => {
 
     it( 'handle localstorage value null', () => {
         spyOn( localStorage, "getItem" ).and.returnValue( null )
-        const classListRemoveSpy = spyOn( document.documentElement.classList,'remove' )
+        const classListRemoveSpy = spyOn( document.documentElement.classList, 'remove' )
         const service = new ThemeService()
 
         expect( service.theme ).toBe( 'light' )
@@ -16,7 +16,7 @@ describe( 'ThemeService', () => {
 
     it( 'handle localstorage value light', () => {
         spyOn( localStorage, "getItem" ).and.returnValue( 'light' )
-        const classListRemoveSpy = spyOn( document.documentElement.classList,'remove' )
+        const classListRemoveSpy = spyOn( document.documentElement.classList, 'remove' )
         const service = new ThemeService()
 
         expect( service.theme ).toBe( 'light' )
@@ -27,7 +27,7 @@ describe( 'ThemeService', () => {
 
     it( 'handle localstorage value dark', () => {
         spyOn( localStorage, "getItem" ).and.returnValue( 'dark' )
-        const classListAddSpy = spyOn( document.documentElement.classList,'add' )
+        const classListAddSpy = spyOn( document.documentElement.classList, 'add' )
         const service = new ThemeService()
 
         expect( service.theme ).toBe( 'dark' )
@@ -39,8 +39,8 @@ describe( 'ThemeService', () => {
 
     it( 'handle toggle when theme is light', () => {
         spyOn( localStorage, "getItem" ).and.returnValue( 'light' )
-        const localStorageSetItemSpy = spyOn( localStorage,"setItem" )
-        const classListAddSpy = spyOn( document.documentElement.classList,'add' )
+        const localStorageSetItemSpy = spyOn( localStorage, "setItem" )
+        const classListAddSpy = spyOn( document.documentElement.classList, 'add' )
         const service = new ThemeService()
         service.toggle()
 
@@ -57,8 +57,8 @@ describe( 'ThemeService', () => {
 
     it( 'handle toggle when theme is dark', () => {
         spyOn( localStorage, "getItem" ).and.returnValue( 'dark' )
-        const localStorageSetItemSpy = spyOn( localStorage,"setItem" )
-        const classListRemoveSpy = spyOn( document.documentElement.classList,'remove' )
+        const localStorageSetItemSpy = spyOn( localStorage, "setItem" )
+        const classListRemoveSpy = spyOn( document.documentElement.classList, 'remove' )
         const service = new ThemeService()
         service.toggle()
 

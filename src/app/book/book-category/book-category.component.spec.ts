@@ -128,7 +128,7 @@ describe( 'BookCategoryComponent', () => {
     } )
 
 
-    it( 'should handle categoryMainType language categorySubType Chinese',async ()=>{
+    it( 'should handle categoryMainType language categorySubType Chinese', async ()=>{
         const {
             component
         } = await arrange( {
@@ -166,7 +166,7 @@ describe( 'BookCategoryComponent', () => {
 
     } )
 
-    it( 'should handle categoryMainType language categorySubType English',async ()=>{
+    it( 'should handle categoryMainType language categorySubType English', async ()=>{
         const {
             component,
             bookService
@@ -227,7 +227,7 @@ describe( 'BookCategoryComponent', () => {
 
     
 
-    it( 'should handle categoryMainType publish_year',async ()=>{
+    it( 'should handle categoryMainType publish_year', async ()=>{
         const {
             component,
             bookService
@@ -286,7 +286,7 @@ describe( 'BookCategoryComponent', () => {
     } )
 
 
-    it( 'should handle other categoryMainType',async ()=>{
+    it( 'should handle other categoryMainType', async ()=>{
         const {
             component,
             bookService

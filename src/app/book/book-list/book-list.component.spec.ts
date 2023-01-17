@@ -13,7 +13,7 @@ import { BookListComponent } from './book-list.component'
 } )
 export class PaginatePipeStub implements PipeTransform {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
-    transform<T>( value: T,args: any ) {
+    transform<T>( value: T, args: any ) {
         return value
     }
 }
@@ -93,7 +93,7 @@ describe( 'BookListComponent', () => {
         expect( component ).toBeTruthy()
     } )
 
-    it( 'should handle routerLink',()=>{
+    it( 'should handle routerLink', ()=>{
         const linkDes = fixture.debugElement.queryAll( By.directive( RouterLinkDirectiveStub ) )
         const routerLinks = linkDes.map( de => de.injector.get( RouterLinkDirectiveStub ) )
 

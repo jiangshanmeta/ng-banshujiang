@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { map, Observable, of, switchMap,combineLatest, tap } from 'rxjs'
+import { map, Observable, of, switchMap, combineLatest, tap } from 'rxjs'
 import { Book, BookId, BookService } from '../../book.service'
 
 @Component( {

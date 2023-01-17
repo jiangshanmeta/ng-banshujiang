@@ -31,10 +31,10 @@ export class ThemeService {
     toggle(){
         if( this._theme === 'dark' ){
             this._theme = 'light'
-            localStorage.setItem( themeLocalStorageKey,'light' )
+            localStorage.setItem( themeLocalStorageKey, 'light' )
         }else{
             this._theme = 'dark'
-            localStorage.setItem( themeLocalStorageKey,'dark' )
+            localStorage.setItem( themeLocalStorageKey, 'dark' )
         }
         this.setHTMLTheme()
     }

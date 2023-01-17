@@ -141,29 +141,29 @@ describe( 'HomeComponent', () => {
     } )
 
 
-    describe( 'test HomeComponent Class',()=>{
+    describe( 'test HomeComponent Class', ()=>{
 
-        it( 'test gotoBookList method',()=>{
+        it( 'test gotoBookList method', ()=>{
             component.gotoBookList()
             expect( router.navigateByUrl.calls.first().args[0] ).toBe( '/book/books' )
         } )
 
-        it( 'should call getCategories method from categoryService',()=>{
+        it( 'should call getCategories method from categoryService', ()=>{
             expect( categoryService.getCategories.calls.count() ).toBe( 1 )
         } )
 
-        it( 'should call getAllBooks method from bookService',()=>{
+        it( 'should call getAllBooks method from bookService', ()=>{
             expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
         } )
 
-        it( 'should get categories from service',( done )=>{
+        it( 'should get categories from service', ( done )=>{
             component.categories$.subscribe( ( categories )=>{
                 expect( categories ).toEqual( expectedCategory )
                 done()
             } )
         } )
 
-        it( 'test component handle books from bookService',( done )=>{
+        it( 'test component handle books from bookService', ( done )=>{
             component.books$.subscribe( {
                 next: ( books )=>{
 
@@ -221,8 +221,8 @@ describe( 'HomeComponent', () => {
 
 
 
-    describe( 'should handle template',()=>{
-        it( 'should tell Router to navigate when home-more clicked',()=>{
+    describe( 'should handle template', ()=>{
+        it( 'should tell Router to navigate when home-more clicked', ()=>{
             const homeMoreDom = fixture.nativeElement.querySelector( "#home-more" ) as HTMLElement
             homeMoreDom.click()
     

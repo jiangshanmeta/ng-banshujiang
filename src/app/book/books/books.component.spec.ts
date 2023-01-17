@@ -81,7 +81,7 @@ describe( 'BooksComponent', () => {
         expect( component ).toBeTruthy()
     } )
 
-    it( 'should reverse books received from bookService',()=>{
+    it( 'should reverse books received from bookService', ()=>{
         expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
         expect( component.books ).toEqual( [
             {
