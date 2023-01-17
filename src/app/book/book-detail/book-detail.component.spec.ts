@@ -8,28 +8,28 @@ import { ActivatedRouteStub, RouterLinkDirectiveStub } from 'src/testing'
 
 import { BookDetailComponent } from './book-detail.component'
 
-@Pipe({
+@Pipe( {
     name: 'bookId2ImgUrl'
-})
+} )
 export class BookId2ImgUrlPipeStub implements PipeTransform {
-    transform(value: number) {
+    transform( value: number ) {
         return `${value}.jpeg`
     }
 }
 
-describe('BookDetailComponent', () => {
+describe( 'BookDetailComponent', () => {
     let component: BookDetailComponent
     let fixture: ComponentFixture<BookDetailComponent>
     let bookService: jasmine.SpyObj<BookService>
 
     let routeStub: ActivatedRouteStub
 
-    beforeEach(async () => {
-        routeStub =  new ActivatedRouteStub({
+    beforeEach( async () => {
+        routeStub =  new ActivatedRouteStub( {
             bookId: '1'
-        })
+        } )
 
-        await TestBed.configureTestingModule({
+        await TestBed.configureTestingModule( {
             declarations: [
                 RouterLinkDirectiveStub,
                 BookId2ImgUrlPipeStub,
@@ -42,22 +42,22 @@ describe('BookDetailComponent', () => {
                 },
                 {
                     provide: BookService,
-                    useValue: jasmine.createSpyObj('BookService', [
+                    useValue: jasmine.createSpyObj( 'BookService', [
                         'getBook',
                         'getAllBooks',
                         'getRecommendationByBookId'
-                    ])
+                    ] )
                 }
             ]
-        }).compileComponents()
+        } ).compileComponents()
 
  
 
-        fixture = TestBed.createComponent(BookDetailComponent)
+        fixture = TestBed.createComponent( BookDetailComponent )
 
-        bookService = TestBed.inject(BookService) as jasmine.SpyObj<BookService>
+        bookService = TestBed.inject( BookService ) as jasmine.SpyObj<BookService>
         bookService.getBook.and.returnValues(
-            of({
+            of( {
                 "id": 1 as BookId,
                 "title": "JavaScript Cookbook",
                 "img": "https://imagebsj.netlify.app/1.jpeg",
@@ -72,8 +72,8 @@ describe('BookDetailComponent', () => {
                         "link": "/e_books/1/webstorage_links/13519/to_link"
                     }
                 ]
-            }),
-            of({
+            } ),
+            of( {
                 "id": 11 as BookId,
                 "title": "Ruby编程语言",
                 "img": "https://imagebsj.netlify.app/11.jpeg",
@@ -88,10 +88,10 @@ describe('BookDetailComponent', () => {
                         "link": "/e_books/11/webstorage_links/13539/to_link"
                     }
                 ]
-            },)
+            }, )
         )
 
-        bookService.getAllBooks.and.returnValue(of([
+        bookService.getAllBooks.and.returnValue( of( [
             {
                 "id": 1 as BookId,
                 "title": "JavaScript Cookbook",
@@ -140,34 +140,34 @@ describe('BookDetailComponent', () => {
                     }
                 ]
             },
-        ]))
+        ] ) )
 
-        bookService.getRecommendationByBookId.and.callFake((bookId)=>{
-            if(bookId === 1){
-                return of([
+        bookService.getRecommendationByBookId.and.callFake( ( bookId )=>{
+            if( bookId === 1 ){
+                return of( [
                     2
-                ] as BookId[])
-            }else if(bookId === 11){
-                return of([
+                ] as BookId[] )
+            }else if( bookId === 11 ){
+                return of( [
                     1
-                ] as BookId[]).pipe(delay(100))
+                ] as BookId[] ).pipe( delay( 100 ) )
             }
 
-            return of([])
-        })
+            return of( [] )
+        } )
         
         component = fixture.componentInstance
         fixture.detectChanges()
-    })
+    } )
 
-    it('should create', () => {
-        expect(component).toBeTruthy()
-    })
+    it( 'should create', () => {
+        expect( component ).toBeTruthy()
+    } )
 
-    it('should get bookInfo',()=>{
-        expect(bookService.getBook.calls.count()).toBe(1)
-        expect(bookService.getBook.calls.first().args[0]).toBe(1 as BookId)
-        expect(component.book).toEqual({
+    it( 'should get bookInfo',()=>{
+        expect( bookService.getBook.calls.count() ).toBe( 1 )
+        expect( bookService.getBook.calls.first().args[0] ).toBe( 1 as BookId )
+        expect( component.book ).toEqual( {
             "id": 1 as BookId,
             "title": "JavaScript Cookbook",
             "img": "https://imagebsj.netlify.app/1.jpeg",
@@ -182,23 +182,23 @@ describe('BookDetailComponent', () => {
                     "link": "/e_books/1/webstorage_links/13519/to_link"
                 }
             ]
-        })
+        } )
 
-    })
-
-
-    it('should call service to get recommendation',()=>{
-        expect(bookService.getAllBooks.calls.count()).toBe(1)
-        expect(bookService.getRecommendationByBookId.calls.count()).toBe(1)
-        expect(bookService.getRecommendationByBookId.calls.first().args[0]).toBe(1 as BookId)
-    })
+    } )
 
 
+    it( 'should call service to get recommendation',()=>{
+        expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
+        expect( bookService.getRecommendationByBookId.calls.count() ).toBe( 1 )
+        expect( bookService.getRecommendationByBookId.calls.first().args[0] ).toBe( 1 as BookId )
+    } )
 
-    it('should get recommendation books',(done)=>{
 
-        component.books$.subscribe((books)=>{
-            expect(books).toEqual([
+
+    it( 'should get recommendation books',( done )=>{
+
+        component.books$.subscribe( ( books )=>{
+            expect( books ).toEqual( [
                 {
                     "id": 2 as BookId,
                     "title": "JavaScript Patterns",
@@ -215,30 +215,30 @@ describe('BookDetailComponent', () => {
                         }
                     ]
                 },
-            ])
+            ] )
             done()
-        })
+        } )
 
-    })
+    } )
 
 
-    it('should should recommendation books routerLink',()=>{
-        const linkDes = fixture.debugElement.queryAll(By.directive(RouterLinkDirectiveStub))
-        const routerLinks = linkDes.map(de => de.injector.get(RouterLinkDirectiveStub))
+    it( 'should should recommendation books routerLink',()=>{
+        const linkDes = fixture.debugElement.queryAll( By.directive( RouterLinkDirectiveStub ) )
+        const routerLinks = linkDes.map( de => de.injector.get( RouterLinkDirectiveStub ) )
 
-        expect(routerLinks.length).toBe(1)
-        expect(routerLinks[0].linkParams).toBe('/book/e_book/2')
+        expect( routerLinks.length ).toBe( 1 )
+        expect( routerLinks[0].linkParams ).toBe( '/book/e_book/2' )
 
-    })
+    } )
 
-    it('should get new book when route change',()=>{
-        routeStub.setParamMap({
+    it( 'should get new book when route change',()=>{
+        routeStub.setParamMap( {
             bookId: '11',
-        })
+        } )
 
-        expect(bookService.getAllBooks.calls.count()).toBe(1)
-        expect(bookService.getBook.calls.mostRecent().args[0]).toBe(11 as BookId)
-        expect(component.book).toEqual({
+        expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
+        expect( bookService.getBook.calls.mostRecent().args[0] ).toBe( 11 as BookId )
+        expect( component.book ).toEqual( {
             "id": 11 as BookId,
             "title": "Ruby编程语言",
             "img": "https://imagebsj.netlify.app/11.jpeg",
@@ -253,35 +253,35 @@ describe('BookDetailComponent', () => {
                     "link": "/e_books/11/webstorage_links/13539/to_link"
                 }
             ]
-        })
+        } )
 
-    })
+    } )
 
 
-    it('should call service to get new recommendation when route change',()=>{
-        routeStub.setParamMap({
+    it( 'should call service to get new recommendation when route change',()=>{
+        routeStub.setParamMap( {
             bookId: '11'
-        })
+        } )
 
-        expect(bookService.getAllBooks.calls.count()).toBe(1)
-        expect(bookService.getRecommendationByBookId.calls.count()).toBe(2)
-        expect(bookService.getRecommendationByBookId.calls.mostRecent().args[0]).toBe(11 as BookId)
-    })
+        expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
+        expect( bookService.getRecommendationByBookId.calls.count() ).toBe( 2 )
+        expect( bookService.getRecommendationByBookId.calls.mostRecent().args[0] ).toBe( 11 as BookId )
+    } )
 
-    it('should get new recommendation when route change',fakeAsync(()=>{
-        routeStub.setParamMap({
+    it( 'should get new recommendation when route change',fakeAsync( ()=>{
+        routeStub.setParamMap( {
             bookId: '11'
-        })
+        } )
 
         let resultBooks: Book[] = []
         // be careful of the observable , every subscribe will make independent setup for observable
-        component.books$.pipe(skip(1)).subscribe((books)=>{
+        component.books$.pipe( skip( 1 ) ).subscribe( ( books )=>{
             resultBooks = books
-        })
+        } )
 
-        tick(100)
+        tick( 100 )
 
-        expect(resultBooks).toEqual([
+        expect( resultBooks ).toEqual( [
             {
                 "id": 1 as BookId,
                 "title": "JavaScript Cookbook",
@@ -298,7 +298,7 @@ describe('BookDetailComponent', () => {
                     }
                 ]
             }
-        ])
-    }))
+        ] )
+    } ) )
 
-})
+} )

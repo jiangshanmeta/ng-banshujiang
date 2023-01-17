@@ -11,7 +11,7 @@ const routes: Routes = [
     },
     {
         path: 'book',
-        loadChildren: ()=>import('./book/book.module').then((m)=>m.BookModule)
+        loadChildren: ()=>import( './book/book.module' ).then( ( m )=>m.BookModule )
     },
     {
         path: '**',
@@ -19,12 +19,12 @@ const routes: Routes = [
     }
 ]
 
-@NgModule({
+@NgModule( {
     imports: [
-        RouterModule.forRoot(routes,{ useHash: true })
+        RouterModule.forRoot( routes,{ useHash: true } )
     ],
     exports: [
         RouterModule
     ]
-})
+} )
 export class AppRoutingModule {}

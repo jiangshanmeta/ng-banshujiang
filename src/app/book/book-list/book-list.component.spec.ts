@@ -8,34 +8,34 @@ import { RouterLinkDirectiveStub } from 'src/testing'
 
 import { BookListComponent } from './book-list.component'
 
-@Pipe({
+@Pipe( {
     name: 'paginate'
-})
+} )
 export class PaginatePipeStub implements PipeTransform {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
-    transform<T>(value: T,args: any) {
+    transform<T>( value: T,args: any ) {
         return value
     }
 }
 
 
-@Pipe({
+@Pipe( {
     name: 'bookId2ImgUrl'
-})
+} )
 export class BookId2ImgUrlPipeStub implements PipeTransform {
-    transform(value: number) {
+    transform( value: number ) {
         return `${value}.jpeg`
     }
 }
 
 
 
-describe('BookListComponent', () => {
+describe( 'BookListComponent', () => {
     let component: BookListComponent
     let fixture: ComponentFixture<BookListComponent>
 
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
+    beforeEach( async () => {
+        await TestBed.configureTestingModule( {
             declarations: [
                 PaginatePipeStub,
                 BookId2ImgUrlPipeStub,
@@ -46,9 +46,9 @@ describe('BookListComponent', () => {
                 // ignore pagination-controls
                 NO_ERRORS_SCHEMA
             ]
-        }).compileComponents()
+        } ).compileComponents()
 
-        fixture = TestBed.createComponent(BookListComponent)
+        fixture = TestBed.createComponent( BookListComponent )
         component = fixture.componentInstance
         component.books = [
             {
@@ -87,20 +87,20 @@ describe('BookListComponent', () => {
 
 
         fixture.detectChanges()
-    })
+    } )
 
-    it('should create', () => {
-        expect(component).toBeTruthy()
-    })
+    it( 'should create', () => {
+        expect( component ).toBeTruthy()
+    } )
 
-    it('should handle routerLink',()=>{
-        const linkDes = fixture.debugElement.queryAll(By.directive(RouterLinkDirectiveStub))
-        const routerLinks = linkDes.map(de => de.injector.get(RouterLinkDirectiveStub))
+    it( 'should handle routerLink',()=>{
+        const linkDes = fixture.debugElement.queryAll( By.directive( RouterLinkDirectiveStub ) )
+        const routerLinks = linkDes.map( de => de.injector.get( RouterLinkDirectiveStub ) )
 
-        expect(routerLinks.length).toBe(2)
-        expect(routerLinks[0].linkParams).toBe('/book/e_book/1')
-        expect(routerLinks[1].linkParams).toBe('/book/e_book/2')
-    })
+        expect( routerLinks.length ).toBe( 2 )
+        expect( routerLinks[0].linkParams ).toBe( '/book/e_book/1' )
+        expect( routerLinks[1].linkParams ).toBe( '/book/e_book/2' )
+    } )
 
 
-})
+} )

@@ -5,13 +5,13 @@ import { Book, BookId, BookService } from 'src/app/book.service'
 
 import { BooksComponent } from './books.component'
 
-@Component({ selector: 'app-book-list', template: '' })
+@Component( { selector: 'app-book-list', template: '' } )
 class BookListStubComponent {
     @Input() books!: Book[]
 }
 
 
-describe('BooksComponent', () => {
+describe( 'BooksComponent', () => {
     let component: BooksComponent
     let fixture: ComponentFixture<BooksComponent>
     let bookService: jasmine.SpyObj<BookService>
@@ -52,8 +52,8 @@ describe('BooksComponent', () => {
     ]
 
 
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
+    beforeEach( async () => {
+        await TestBed.configureTestingModule( {
             declarations: [
                 BookListStubComponent,
                 BooksComponent
@@ -61,29 +61,29 @@ describe('BooksComponent', () => {
             providers: [
                 {
                     provide: BookService,
-                    useValue: jasmine.createSpyObj('BookService', [
+                    useValue: jasmine.createSpyObj( 'BookService', [
                         'getAllBooks'
-                    ])
+                    ] )
                 },
             ]
-        }).compileComponents()
+        } ).compileComponents()
 
 
-        bookService = TestBed.inject(BookService) as jasmine.SpyObj<BookService>
-        bookService.getAllBooks.and.returnValue(of(expectedBooks))
+        bookService = TestBed.inject( BookService ) as jasmine.SpyObj<BookService>
+        bookService.getAllBooks.and.returnValue( of( expectedBooks ) )
 
-        fixture = TestBed.createComponent(BooksComponent)
+        fixture = TestBed.createComponent( BooksComponent )
         component = fixture.componentInstance
         fixture.detectChanges()
-    })
+    } )
 
-    it('should create', () => {
-        expect(component).toBeTruthy()
-    })
+    it( 'should create', () => {
+        expect( component ).toBeTruthy()
+    } )
 
-    it('should reverse books received from bookService',()=>{
-        expect(bookService.getAllBooks.calls.count()).toBe(1)
-        expect(component.books).toEqual([
+    it( 'should reverse books received from bookService',()=>{
+        expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
+        expect( component.books ).toEqual( [
             {
                 "id": 2 as BookId,
                 "title": "JavaScript Patterns",
@@ -117,6 +117,6 @@ describe('BooksComponent', () => {
                     }
                 ]
             },
-        ])
-    })
-})
+        ] )
+    } )
+} )

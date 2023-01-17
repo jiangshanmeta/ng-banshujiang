@@ -4,49 +4,49 @@ import { Book, BookId, BookService } from '../../book.service'
 
 import { forkJoin } from 'rxjs'
 
-@Component({
+@Component( {
     selector: 'app-book-category',
     templateUrl: './book-category.component.html',
     styleUrls: [
         './book-category.component.css'
     ]
-})
+} )
 export class BookCategoryComponent implements OnInit {
     books: Book[] = []
-    constructor(private bookService: BookService, private route: ActivatedRoute) {}
+    constructor( private bookService: BookService, private route: ActivatedRoute ) {}
 
     ngOnInit(): void {
-        const categoryMainType = this.route.snapshot.paramMap.get('categoryMainType')
-        const categorySubType = decodeURIComponent(this.route.snapshot.paramMap.get('categorySubType') || '')
+        const categoryMainType = this.route.snapshot.paramMap.get( 'categoryMainType' )
+        const categorySubType = decodeURIComponent( this.route.snapshot.paramMap.get( 'categorySubType' ) || '' )
 
-        if (!categorySubType) {
+        if ( !categorySubType ) {
             return
         }
 
-        if (categoryMainType === 'language') {
-            this.bookService.getAllBooks().subscribe((books) => {
-                this.books = books.filter((book) => book.language === categorySubType).reverse()
-            })
+        if ( categoryMainType === 'language' ) {
+            this.bookService.getAllBooks().subscribe( ( books ) => {
+                this.books = books.filter( ( book ) => book.language === categorySubType ).reverse()
+            } )
             return
         }
 
-        if (categoryMainType === 'publish_year') {
-            this.bookService.getAllBooks().subscribe((books) => {
-                this.books = books.filter((book) => book.publishYear === +categorySubType).reverse()
-            })
+        if ( categoryMainType === 'publish_year' ) {
+            this.bookService.getAllBooks().subscribe( ( books ) => {
+                this.books = books.filter( ( book ) => book.publishYear === +categorySubType ).reverse()
+            } )
             return
         }
 
-        forkJoin({
+        forkJoin( {
             books: this.bookService.getAllBooks(),
-            bookIds: this.bookService.getBookIdByCategory(categorySubType)
-        }).subscribe(({ books, bookIds }) => {
-            const bookMap = books.reduce<Record<BookId, Book>>((acc, item) => {
+            bookIds: this.bookService.getBookIdByCategory( categorySubType )
+        } ).subscribe( ( { books, bookIds } ) => {
+            const bookMap = books.reduce<Record<BookId, Book>>( ( acc, item ) => {
                 acc[item.id] = item
                 return acc
-            }, {})
+            }, {} )
 
-            this.books = bookIds.map((bookId) => bookMap[bookId]).filter((item) => item)
-        })
+            this.books = bookIds.map( ( bookId ) => bookMap[bookId] ).filter( ( item ) => item )
+        } )
     }
 }

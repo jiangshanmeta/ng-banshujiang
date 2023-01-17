@@ -14,7 +14,7 @@ import { NavComponent } from './nav/nav.component'
 import { httpInterceptorProviders } from './http-interceptors'
 import { RequestCache, RequestCacheService } from './request-cache.service'
 
-@NgModule({
+@NgModule( {
     declarations: [
         AppComponent,
         HomeComponent,
@@ -41,5 +41,5 @@ import { RequestCache, RequestCacheService } from './request-cache.service'
     bootstrap: [
         AppComponent
     ]
-})
+} )
 export class AppModule {}

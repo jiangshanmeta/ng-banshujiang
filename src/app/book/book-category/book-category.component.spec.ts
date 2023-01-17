@@ -7,7 +7,7 @@ import { ActivatedRouteStub } from 'src/testing'
 
 import { BookCategoryComponent } from './book-category.component'
 
-describe('BookCategoryComponent', () => {
+describe( 'BookCategoryComponent', () => {
 
     const expectedBooks: Book[] = [
         {
@@ -62,7 +62,7 @@ describe('BookCategoryComponent', () => {
     ]
 
 
-    async function arrange({
+    async function arrange( {
         getAllBooks,
         getBookIdByCategory,
         routeParam
@@ -70,36 +70,36 @@ describe('BookCategoryComponent', () => {
         getAllBooks: ReturnType<BookService['getAllBooks']>,
         getBookIdByCategory: ReturnType<BookService['getBookIdByCategory']>,
         routeParam: Params
-    }){
-        await TestBed.configureTestingModule({
+    } ){
+        await TestBed.configureTestingModule( {
             declarations: [
                 BookCategoryComponent
             ],
             providers: [
                 {
                     provide: BookService,
-                    useValue: jasmine.createSpyObj('BookService', [
+                    useValue: jasmine.createSpyObj( 'BookService', [
                         'getAllBooks',
                         'getBookIdByCategory'
-                    ])
+                    ] )
                 },
                 {
                     provide: ActivatedRoute,
-                    useValue: new ActivatedRouteStub(routeParam)
+                    useValue: new ActivatedRouteStub( routeParam )
                 }
             ],
             schemas: [
                 NO_ERRORS_SCHEMA
             ]
-        }).compileComponents()
+        } ).compileComponents()
 
-        const bookService = TestBed.inject(BookService) as jasmine.SpyObj<BookService>
-        bookService.getAllBooks.and.returnValue(getAllBooks)
-        bookService.getBookIdByCategory.and.returnValue(getBookIdByCategory)
+        const bookService = TestBed.inject( BookService ) as jasmine.SpyObj<BookService>
+        bookService.getAllBooks.and.returnValue( getAllBooks )
+        bookService.getBookIdByCategory.and.returnValue( getBookIdByCategory )
 
-        const route = TestBed.inject(ActivatedRoute)
+        const route = TestBed.inject( ActivatedRoute )
 
-        const fixture = TestBed.createComponent(BookCategoryComponent)
+        const fixture = TestBed.createComponent( BookCategoryComponent )
         const component = fixture.componentInstance
 
         return {
@@ -110,42 +110,42 @@ describe('BookCategoryComponent', () => {
     }
 
 
-    it('should create', async () => {
+    it( 'should create', async () => {
         const {
             component
-        } = await arrange({
-            getAllBooks: of(expectedBooks),
-            getBookIdByCategory: of([
+        } = await arrange( {
+            getAllBooks: of( expectedBooks ),
+            getBookIdByCategory: of( [
                 1
-            ] as BookId[]),
+            ] as BookId[] ),
             routeParam: {
                 categoryMainType: 'language',
                 categorySubType: '中文'
             }
-        })
+        } )
 
-        expect(component).toBeTruthy()
-    })
+        expect( component ).toBeTruthy()
+    } )
 
 
-    it('should handle categoryMainType language categorySubType Chinese',async ()=>{
+    it( 'should handle categoryMainType language categorySubType Chinese',async ()=>{
         const {
             component
-        } = await arrange({
-            getAllBooks: of(expectedBooks),
-            getBookIdByCategory: of([
+        } = await arrange( {
+            getAllBooks: of( expectedBooks ),
+            getBookIdByCategory: of( [
                 1
-            ] as BookId[]),
+            ] as BookId[] ),
             routeParam: {
                 categoryMainType: 'language',
                 categorySubType: '中文'
             }
-        })
+        } )
 
         component.ngOnInit()
 
 
-        expect(component.books).toEqual([
+        expect( component.books ).toEqual( [
             {
                 "id": 11 as BookId,
                 "title": "Ruby编程语言",
@@ -162,33 +162,33 @@ describe('BookCategoryComponent', () => {
                     }
                 ]
             },
-        ])
+        ] )
 
-    })
+    } )
 
-    it('should handle categoryMainType language categorySubType English',async ()=>{
+    it( 'should handle categoryMainType language categorySubType English',async ()=>{
         const {
             component,
             bookService
-        } = await arrange({
-            getAllBooks: of(expectedBooks),
-            getBookIdByCategory: of([
+        } = await arrange( {
+            getAllBooks: of( expectedBooks ),
+            getBookIdByCategory: of( [
                 1,
                 2,
                 11
-            ] as BookId[]),
+            ] as BookId[] ),
             routeParam: {
                 categoryMainType: 'language',
                 categorySubType: '英文'
             }
-        })
+        } )
 
         component.ngOnInit()
 
 
-        expect(bookService.getAllBooks.calls.count()).toBe(1)
+        expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
 
-        expect(component.books).toEqual([
+        expect( component.books ).toEqual( [
             {
                 "id": 2 as BookId,
                 "title": "JavaScript Patterns",
@@ -222,33 +222,33 @@ describe('BookCategoryComponent', () => {
                 ]
             },
 
-        ])
-    })
+        ] )
+    } )
 
     
 
-    it('should handle categoryMainType publish_year',async ()=>{
+    it( 'should handle categoryMainType publish_year',async ()=>{
         const {
             component,
             bookService
-        } = await arrange({
-            getAllBooks: of(expectedBooks),
-            getBookIdByCategory: of([
+        } = await arrange( {
+            getAllBooks: of( expectedBooks ),
+            getBookIdByCategory: of( [
                 1,
                 2,
                 11
-            ] as BookId[]),
+            ] as BookId[] ),
             routeParam: {
                 categoryMainType: 'publish_year',
                 categorySubType: '2010'
             }
-        })
+        } )
 
         component.ngOnInit()
 
-        expect(bookService.getAllBooks.calls.count()).toBe(1)
+        expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
 
-        expect(component.books).toEqual([
+        expect( component.books ).toEqual( [
             {
                 "id": 2 as BookId,
                 "title": "JavaScript Patterns",
@@ -281,32 +281,32 @@ describe('BookCategoryComponent', () => {
                     }
                 ]
             },
-        ])
+        ] )
 
-    })
+    } )
 
 
-    it('should handle other categoryMainType',async ()=>{
+    it( 'should handle other categoryMainType',async ()=>{
         const {
             component,
             bookService
-        } = await arrange({
-            getAllBooks: of(expectedBooks),
-            getBookIdByCategory: of([
+        } = await arrange( {
+            getAllBooks: of( expectedBooks ),
+            getBookIdByCategory: of( [
                 1,
                 2,
-            ] as BookId[]),
+            ] as BookId[] ),
             routeParam: {
                 categoryMainType: 'programming_language',
                 categorySubType: 'JavaScript'
             }
-        })
+        } )
 
         component.ngOnInit()
-        expect(bookService.getAllBooks.calls.count()).toBe(1)
-        expect(bookService.getBookIdByCategory.calls.count()).toBe(1)
-        expect(bookService.getBookIdByCategory.calls.first().args[0]).toBe('JavaScript')
-        expect(component.books).toEqual([
+        expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
+        expect( bookService.getBookIdByCategory.calls.count() ).toBe( 1 )
+        expect( bookService.getBookIdByCategory.calls.first().args[0] ).toBe( 'JavaScript' )
+        expect( component.books ).toEqual( [
             {
                 "id": 1 as BookId,
                 "title": "JavaScript Cookbook",
@@ -339,8 +339,8 @@ describe('BookCategoryComponent', () => {
                     }
                 ]
             },
-        ])
+        ] )
 
-    })
+    } )
 
-})
+} )

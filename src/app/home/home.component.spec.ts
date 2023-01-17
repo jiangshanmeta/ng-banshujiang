@@ -9,17 +9,17 @@ import { CategoryItem, CategoryService } from '../category.service'
 import { HomeComponent } from './home.component'
 
 
-@Pipe({
+@Pipe( {
     name: 'bookId2ImgUrl'
-})
+} )
 export class BookId2ImgUrlPipeStub implements PipeTransform {
-    transform(value: number) {
+    transform( value: number ) {
         return `${value}.jpeg`
     }
 }
 
 
-describe('HomeComponent', () => {
+describe( 'HomeComponent', () => {
     let component: HomeComponent
     let fixture: ComponentFixture<HomeComponent>
     let categoryService: jasmine.SpyObj<CategoryService>
@@ -92,9 +92,9 @@ describe('HomeComponent', () => {
     ]
 
 
-    beforeEach(async () => {
+    beforeEach( async () => {
 
-        await TestBed.configureTestingModule({
+        await TestBed.configureTestingModule( {
             declarations: [
                 BookId2ImgUrlPipeStub,
                 RouterLinkDirectiveStub,
@@ -103,71 +103,71 @@ describe('HomeComponent', () => {
             providers: [
                 {
                     provide: CategoryService,
-                    useValue: jasmine.createSpyObj('CategoryService', [
+                    useValue: jasmine.createSpyObj( 'CategoryService', [
                         'getCategories'
-                    ])
+                    ] )
                 },
                 {
                     provide: BookService,
-                    useValue: jasmine.createSpyObj('BookService', [
+                    useValue: jasmine.createSpyObj( 'BookService', [
                         'getAllBooks'
-                    ])
+                    ] )
                 },
                 {
                     provide: Router,
-                    useValue: jasmine.createSpyObj('Router', [
+                    useValue: jasmine.createSpyObj( 'Router', [
                         'navigateByUrl'
-                    ])
+                    ] )
                 }
             ]
-        }).compileComponents()
+        } ).compileComponents()
 
-        fixture = TestBed.createComponent(HomeComponent)
+        fixture = TestBed.createComponent( HomeComponent )
 
-        categoryService = TestBed.inject(CategoryService) as jasmine.SpyObj<CategoryService>
-        categoryService.getCategories.and.returnValue(of(expectedCategory))
+        categoryService = TestBed.inject( CategoryService ) as jasmine.SpyObj<CategoryService>
+        categoryService.getCategories.and.returnValue( of( expectedCategory ) )
 
-        bookService = TestBed.inject(BookService) as jasmine.SpyObj<BookService>
-        bookService.getAllBooks.and.returnValue(of(expectedBooks))
+        bookService = TestBed.inject( BookService ) as jasmine.SpyObj<BookService>
+        bookService.getAllBooks.and.returnValue( of( expectedBooks ) )
 
-        router = TestBed.inject(Router) as jasmine.SpyObj<Router>
+        router = TestBed.inject( Router ) as jasmine.SpyObj<Router>
 
         component = fixture.componentInstance
         fixture.detectChanges()
-    })
+    } )
 
-    it('should create', () => {
-        expect(component).toBeTruthy()
-    })
+    it( 'should create', () => {
+        expect( component ).toBeTruthy()
+    } )
 
 
-    describe('test HomeComponent Class',()=>{
+    describe( 'test HomeComponent Class',()=>{
 
-        it('test gotoBookList method',()=>{
+        it( 'test gotoBookList method',()=>{
             component.gotoBookList()
-            expect(router.navigateByUrl.calls.first().args[0]).toBe('/book/books')
-        })
+            expect( router.navigateByUrl.calls.first().args[0] ).toBe( '/book/books' )
+        } )
 
-        it('should call getCategories method from categoryService',()=>{
-            expect(categoryService.getCategories.calls.count()).toBe(1)
-        })
+        it( 'should call getCategories method from categoryService',()=>{
+            expect( categoryService.getCategories.calls.count() ).toBe( 1 )
+        } )
 
-        it('should call getAllBooks method from bookService',()=>{
-            expect(bookService.getAllBooks.calls.count()).toBe(1)
-        })
+        it( 'should call getAllBooks method from bookService',()=>{
+            expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
+        } )
 
-        it('should get categories from service',(done)=>{
-            component.categories$.subscribe((categories)=>{
-                expect(categories).toEqual(expectedCategory)
+        it( 'should get categories from service',( done )=>{
+            component.categories$.subscribe( ( categories )=>{
+                expect( categories ).toEqual( expectedCategory )
                 done()
-            })
-        })
+            } )
+        } )
 
-        it('test component handle books from bookService',(done)=>{
-            component.books$.subscribe({
-                next: (books)=>{
+        it( 'test component handle books from bookService',( done )=>{
+            component.books$.subscribe( {
+                next: ( books )=>{
 
-                    expect(books).toEqual([
+                    expect( books ).toEqual( [
                         {
                             "id": 2 as BookId,
                             "title": "JavaScript Patterns",
@@ -202,37 +202,37 @@ describe('HomeComponent', () => {
                             ]
                         },
     
-                    ])
+                    ] )
 
                     done()
                 },
                 error: done.fail
-            })
+            } )
 
 
 
             
 
-        })
+        } )
 
 
-    })
+    } )
 
 
 
 
-    describe('should handle template',()=>{
-        it('should tell Router to navigate when home-more clicked',()=>{
-            const homeMoreDom = fixture.nativeElement.querySelector("#home-more") as HTMLElement
+    describe( 'should handle template',()=>{
+        it( 'should tell Router to navigate when home-more clicked',()=>{
+            const homeMoreDom = fixture.nativeElement.querySelector( "#home-more" ) as HTMLElement
             homeMoreDom.click()
     
-            expect(router.navigateByUrl.calls.first().args[0]).toBe('/book/books')
-        })
+            expect( router.navigateByUrl.calls.first().args[0] ).toBe( '/book/books' )
+        } )
 
 
 
 
-    })
+    } )
 
 
-})
+} )

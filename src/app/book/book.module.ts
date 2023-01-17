@@ -12,7 +12,7 @@ import { BookCategoryComponent } from './book-category/book-category.component'
 
 import { ShareModule } from '../share/share.module'
 
-@NgModule({
+@NgModule( {
     declarations: [
         BookListComponent,
         BooksComponent,
@@ -26,5 +26,5 @@ import { ShareModule } from '../share/share.module'
         ShareModule,
     ],
 
-})
+} )
 export class BookModule { }

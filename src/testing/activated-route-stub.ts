@@ -15,10 +15,10 @@ export class ActivatedRouteStub {
     }
     
     
-    constructor(initialParams: Params = {}) {
-        this.setParamMap(initialParams)
+    constructor( initialParams: Params = {} ) {
+        this.setParamMap( initialParams )
         this.snapshot = {
-            paramMap: convertToParamMap(initialParams)
+            paramMap: convertToParamMap( initialParams )
         }
         
     }
@@ -30,7 +30,7 @@ export class ActivatedRouteStub {
 
 
     /** Set the paramMap observable's next value */
-    setParamMap(params: Params = {}) {
-        this.subject.next(convertToParamMap(params))
+    setParamMap( params: Params = {} ) {
+        this.subject.next( convertToParamMap( params ) )
     }
 }

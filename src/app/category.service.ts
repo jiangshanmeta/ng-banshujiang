@@ -10,13 +10,13 @@ export interface CategoryItem {
     }[]
 }
 
-@Injectable({
+@Injectable( {
     providedIn: 'root'
-})
+} )
 export class CategoryService {
-    constructor(private http: HttpClient, @Inject(API_URL) private api_url: string) {}
+    constructor( private http: HttpClient, @Inject( API_URL ) private api_url: string ) {}
 
     getCategories() {
-        return this.http.get<CategoryItem[]>(`${this.api_url}categories.json`)
+        return this.http.get<CategoryItem[]>( `${this.api_url}categories.json` )
     }
 }

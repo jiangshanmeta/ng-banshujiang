@@ -4,8 +4,8 @@ import { defer } from 'rxjs'
  * Create async observable that emits-once and completes
  * after a JS engine turn
  */
-export function asyncData<T>(data: T) {
-    return defer(() => Promise.resolve(data))
+export function asyncData<T>( data: T ) {
+    return defer( () => Promise.resolve( data ) )
 }
 
 /**
@@ -13,6 +13,6 @@ export function asyncData<T>(data: T) {
  * after a JS engine turn
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function asyncError(errorObject: any) {
-    return defer(() => Promise.reject(errorObject))
+export function asyncError( errorObject: any ) {
+    return defer( () => Promise.reject( errorObject ) )
 }

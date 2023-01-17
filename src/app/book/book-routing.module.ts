@@ -19,12 +19,12 @@ const routes: Routes = [
     },
 ]
 
-@NgModule({
+@NgModule( {
     imports: [
-        RouterModule.forChild(routes)
+        RouterModule.forChild( routes )
     ],
     exports: [
         RouterModule
     ]
-})
+} )
 export class BookRoutingModule { }

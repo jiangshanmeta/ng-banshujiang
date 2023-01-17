@@ -3,13 +3,13 @@ import { TestBed } from '@angular/core/testing'
 import { BookService,Book, BookId, RecommendationItem } from './book.service'
 import { API_URL } from './app.config'
 
-describe('BookService', () => {
+describe( 'BookService', () => {
     let service: BookService
 
     let httpTestingController: HttpTestingController
-    beforeEach(() => {
+    beforeEach( () => {
 
-        TestBed.configureTestingModule({
+        TestBed.configureTestingModule( {
             imports: [
                 HttpClientTestingModule
             ],
@@ -19,27 +19,27 @@ describe('BookService', () => {
                     useValue: 'https://jiangshanmeta.github.io/spider-banshujiang/'
                 },
             ]
-        })
+        } )
       
-        httpTestingController = TestBed.inject(HttpTestingController)
-        service = TestBed.inject(BookService)
-    })
+        httpTestingController = TestBed.inject( HttpTestingController )
+        service = TestBed.inject( BookService )
+    } )
 
 
-    afterEach(() => {
+    afterEach( () => {
         httpTestingController.verify()
-    })
+    } )
 
-    it('should be created', () => {
-        expect(service).toBeTruthy()
-    })
+    it( 'should be created', () => {
+        expect( service ).toBeTruthy()
+    } )
 
 
-    describe('#getAllBooks',()=>{
+    describe( '#getAllBooks',()=>{
         let expectedBooks: Book[] = []
-        beforeEach(() => {
+        beforeEach( () => {
 
-            service = TestBed.inject(BookService)
+            service = TestBed.inject( BookService )
             expectedBooks = [
                 {
                     "id": 1 as BookId,
@@ -74,31 +74,32 @@ describe('BookService', () => {
                     ]
                 },
             ]
-        })
+        } )
 
-        it('should return expected books',()=>{
-            service.getAllBooks().subscribe({
-                next: books => expect(books)
-                    .withContext('should return expected books')
-                    .toEqual(expectedBooks),
+        it( 'should return expected books',()=>{
+            service.getAllBooks().subscribe( {
+                next: books => expect( books )
+                    .withContext( 'should return expected books' )
+                    .toEqual( expectedBooks ),
                 error: fail
-            })
+            } )
 
 
-            const req = httpTestingController.expectOne('https://jiangshanmeta.github.io/spider-banshujiang/books.json')
-            expect(req.request.method).toEqual('GET')
+            const req = httpTestingController
+                .expectOne( 'https://jiangshanmeta.github.io/spider-banshujiang/books.json' )
+            expect( req.request.method ).toEqual( 'GET' )
 
-            req.flush(expectedBooks)
-        })
+            req.flush( expectedBooks )
+        } )
 
-    })
+    } )
 
 
-    describe('#getBook',()=>{
+    describe( '#getBook',()=>{
         let expectedBooks: Book[] = []
-        beforeEach(() => {
+        beforeEach( () => {
 
-            service = TestBed.inject(BookService)
+            service = TestBed.inject( BookService )
             expectedBooks = [
                 {
                     "id": 1 as BookId,
@@ -133,47 +134,49 @@ describe('BookService', () => {
                     ]
                 },
             ]
-        })
+        } )
 
-        it('get the right book with id',()=>{
-            service.getBook(1 as BookId).subscribe({
-                next: book => expect(book)
-                    .withContext('should return expected books')
-                    .toEqual(expectedBooks[0]),
+        it( 'get the right book with id',()=>{
+            service.getBook( 1 as BookId ).subscribe( {
+                next: book => expect( book )
+                    .withContext( 'should return expected books' )
+                    .toEqual( expectedBooks[0] ),
                 error: fail
-            })
+            } )
 
 
-            const req = httpTestingController.expectOne('https://jiangshanmeta.github.io/spider-banshujiang/books.json')
-            expect(req.request.method).toEqual('GET')
+            const req = httpTestingController
+                .expectOne( 'https://jiangshanmeta.github.io/spider-banshujiang/books.json' )
+            expect( req.request.method ).toEqual( 'GET' )
 
-            req.flush(expectedBooks)
-        })
+            req.flush( expectedBooks )
+        } )
 
-        it('handle not found book',()=>{
-            service.getBook(100 as BookId).subscribe({
-                next: book => expect(book)
-                    .withContext('should return expected books')
-                    .toEqual(null),
+        it( 'handle not found book',()=>{
+            service.getBook( 100 as BookId ).subscribe( {
+                next: book => expect( book )
+                    .withContext( 'should return expected books' )
+                    .toEqual( null ),
                 error: fail
-            })
+            } )
 
 
-            const req = httpTestingController.expectOne('https://jiangshanmeta.github.io/spider-banshujiang/books.json')
-            expect(req.request.method).toEqual('GET')
+            const req = httpTestingController
+                .expectOne( 'https://jiangshanmeta.github.io/spider-banshujiang/books.json' )
+            expect( req.request.method ).toEqual( 'GET' )
 
-            req.flush(expectedBooks)
-        })
+            req.flush( expectedBooks )
+        } )
 
         
 
-    })
+    } )
 
-    describe('#getBookCategories',()=>{
+    describe( '#getBookCategories',()=>{
         let expectedBookCategory: Record<string, BookId[]> = {}
-        beforeEach(() => {
+        beforeEach( () => {
 
-            service = TestBed.inject(BookService)
+            service = TestBed.inject( BookService )
             expectedBookCategory = {
                 "ActionScript": [
                     1678,
@@ -199,32 +202,32 @@ describe('BookService', () => {
                     78
                 ] as BookId[],
             }
-        })
+        } )
 
-        it('should return expected bookCategory',()=>{
-            service.getBookCategories().subscribe({
-                next: bookCategory  => expect(bookCategory)
-                    .withContext('should return expected bookCategory')
-                    .toEqual(expectedBookCategory),
+        it( 'should return expected bookCategory',()=>{
+            service.getBookCategories().subscribe( {
+                next: bookCategory  => expect( bookCategory )
+                    .withContext( 'should return expected bookCategory' )
+                    .toEqual( expectedBookCategory ),
                 error: fail
-            })
+            } )
 
 
             const req = httpTestingController
-                .expectOne('https://jiangshanmeta.github.io/spider-banshujiang/bookCategory.json')
-            expect(req.request.method).toEqual('GET')
+                .expectOne( 'https://jiangshanmeta.github.io/spider-banshujiang/bookCategory.json' )
+            expect( req.request.method ).toEqual( 'GET' )
 
-            req.flush(expectedBookCategory)
-        })
+            req.flush( expectedBookCategory )
+        } )
 
-    })
+    } )
 
 
-    describe('#getBookIdByCategory',()=>{
+    describe( '#getBookIdByCategory',()=>{
         let expectedBookCategory: Record<string, BookId[]> = {}
-        beforeEach(() => {
+        beforeEach( () => {
 
-            service = TestBed.inject(BookService)
+            service = TestBed.inject( BookService )
             expectedBookCategory = {
                 "ActionScript": [
                     1678,
@@ -250,51 +253,51 @@ describe('BookService', () => {
                     78
                 ] as BookId[],
             }
-        })
+        } )
 
-        it('get bookIds with correct category',()=>{
-            service.getBookIdByCategory('ActionScript').subscribe({
-                next: category => expect(category)
-                    .withContext('should return expected books')
-                    .toEqual(expectedBookCategory['ActionScript']),
+        it( 'get bookIds with correct category',()=>{
+            service.getBookIdByCategory( 'ActionScript' ).subscribe( {
+                next: category => expect( category )
+                    .withContext( 'should return expected books' )
+                    .toEqual( expectedBookCategory['ActionScript'] ),
                 error: fail
-            })
+            } )
 
 
             const req = httpTestingController
-                .expectOne('https://jiangshanmeta.github.io/spider-banshujiang/bookCategory.json')
+                .expectOne( 'https://jiangshanmeta.github.io/spider-banshujiang/bookCategory.json' )
 
-            expect(req.request.method).toEqual('GET')
+            expect( req.request.method ).toEqual( 'GET' )
 
-            req.flush(expectedBookCategory)
-        })
+            req.flush( expectedBookCategory )
+        } )
 
-        it('handle not found category',()=>{
-            service.getBookIdByCategory('TypeScript').subscribe({
-                next: category => expect(category)
-                    .withContext('handle not found category')
-                    .toEqual([]),
+        it( 'handle not found category',()=>{
+            service.getBookIdByCategory( 'TypeScript' ).subscribe( {
+                next: category => expect( category )
+                    .withContext( 'handle not found category' )
+                    .toEqual( [] ),
                 error: fail
-            })
+            } )
 
 
             const req = httpTestingController
-                .expectOne('https://jiangshanmeta.github.io/spider-banshujiang/bookCategory.json')
-            expect(req.request.method).toEqual('GET')
+                .expectOne( 'https://jiangshanmeta.github.io/spider-banshujiang/bookCategory.json' )
+            expect( req.request.method ).toEqual( 'GET' )
 
-            req.flush(expectedBookCategory)
-        })
+            req.flush( expectedBookCategory )
+        } )
 
         
 
-    })
+    } )
 
 
-    describe('#getAllRecommendations',()=>{
+    describe( '#getAllRecommendations',()=>{
         let expectedRecommendation: RecommendationItem[] = []
-        beforeEach(() => {
+        beforeEach( () => {
 
-            service = TestBed.inject(BookService)
+            service = TestBed.inject( BookService )
             expectedRecommendation = [
                 {
                     "id": 1 as BookId,
@@ -339,32 +342,32 @@ describe('BookService', () => {
                     ] as BookId[]
                 },
             ]
-        })
+        } )
 
-        it('should return expected recommendation',()=>{
-            service.getAllRecommendations().subscribe({
-                next: recommendation  => expect(recommendation)
-                    .withContext('should return expected recommendation')
-                    .toEqual(expectedRecommendation),
+        it( 'should return expected recommendation',()=>{
+            service.getAllRecommendations().subscribe( {
+                next: recommendation  => expect( recommendation )
+                    .withContext( 'should return expected recommendation' )
+                    .toEqual( expectedRecommendation ),
                 error: fail
-            })
+            } )
 
 
             const req = httpTestingController
-                .expectOne('https://jiangshanmeta.github.io/spider-banshujiang/recommendation.json')
-            expect(req.request.method).toEqual('GET')
+                .expectOne( 'https://jiangshanmeta.github.io/spider-banshujiang/recommendation.json' )
+            expect( req.request.method ).toEqual( 'GET' )
 
-            req.flush(expectedRecommendation)
-        })
+            req.flush( expectedRecommendation )
+        } )
 
-    })
+    } )
 
 
-    describe('#getRecommendationByBookId',()=>{
+    describe( '#getRecommendationByBookId',()=>{
         let expectedRecommendation: RecommendationItem[] = []
-        beforeEach(() => {
+        beforeEach( () => {
 
-            service = TestBed.inject(BookService)
+            service = TestBed.inject( BookService )
             expectedRecommendation = [
                 {
                     "id": 1 as BookId,
@@ -409,44 +412,44 @@ describe('BookService', () => {
                     ] as BookId[]
                 },
             ]
-        })
+        } )
 
-        it('get bookIds with correct bookId',()=>{
-            service.getRecommendationByBookId(1 as BookId).subscribe({
-                next: recommendation => expect(recommendation)
-                    .withContext('get bookIds with correct bookId')
-                    .toEqual(expectedRecommendation[0].recommendations),
+        it( 'get bookIds with correct bookId',()=>{
+            service.getRecommendationByBookId( 1 as BookId ).subscribe( {
+                next: recommendation => expect( recommendation )
+                    .withContext( 'get bookIds with correct bookId' )
+                    .toEqual( expectedRecommendation[0].recommendations ),
                 error: fail
-            })
+            } )
 
 
             const req = httpTestingController
-                .expectOne('https://jiangshanmeta.github.io/spider-banshujiang/recommendation.json')
+                .expectOne( 'https://jiangshanmeta.github.io/spider-banshujiang/recommendation.json' )
 
-            expect(req.request.method).toEqual('GET')
+            expect( req.request.method ).toEqual( 'GET' )
 
-            req.flush(expectedRecommendation)
-        })
+            req.flush( expectedRecommendation )
+        } )
 
-        it('handle not found bookId',()=>{
-            service.getRecommendationByBookId(1000 as BookId).subscribe({
-                next: recommendation => expect(recommendation)
-                    .withContext('handle not found category')
-                    .toEqual([]),
+        it( 'handle not found bookId',()=>{
+            service.getRecommendationByBookId( 1000 as BookId ).subscribe( {
+                next: recommendation => expect( recommendation )
+                    .withContext( 'handle not found category' )
+                    .toEqual( [] ),
                 error: fail
-            })
+            } )
 
 
             const req = httpTestingController
-                .expectOne('https://jiangshanmeta.github.io/spider-banshujiang/recommendation.json')
-            expect(req.request.method).toEqual('GET')
+                .expectOne( 'https://jiangshanmeta.github.io/spider-banshujiang/recommendation.json' )
+            expect( req.request.method ).toEqual( 'GET' )
 
-            req.flush(expectedRecommendation)
-        })
+            req.flush( expectedRecommendation )
+        } )
 
         
 
-    })
+    } )
 
 
-})
+} )

@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Directive, HostListener, Input } from "@angular/core"
 
-@Directive({
+@Directive( {
     // eslint-disable-next-line @angular-eslint/directive-selector
     selector: '[routerLink]'
-})
+} )
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class RouterLinkDirectiveStub {
-    @Input('routerLink') linkParams: any
+    @Input( 'routerLink' ) linkParams: any
     navigatedTo: any = null
   
-    @HostListener('click')
+    @HostListener( 'click' )
     onClick() {
         this.navigatedTo = this.linkParams
     }
