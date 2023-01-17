@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { map, Observable, of, switchMap,combineLatest } from 'rxjs'
+import { map, Observable, of, switchMap,combineLatest, tap } from 'rxjs'
 import { Book, BookId, BookService } from '../../book.service'
 
 @Component( {
@@ -21,15 +21,15 @@ export class BookDetailComponent implements OnInit {
             map( ( paramMap )=>  Number( paramMap.get( 'bookId' ) ) as BookId )
         )
 
-        bookId$.subscribe( ( bookId )=>{
-            this.loading = true
-            this.bookService.getBook( bookId ).subscribe( ( book ) => {
-                this.book = book
-                this.loading = false
-            } )
+        bookId$.pipe(
+            tap( ()=>this.loading = true ),
+            switchMap( ( bookId )=>this.bookService.getBook( bookId ) )
+        ).subscribe( ( book )=>{
+            this.book = book
+            this.loading = false
         } )
-
-
+        
+        
         this.books$ = combineLatest( {
             books: this.bookService.getAllBooks(),
             bookIds: bookId$.pipe(
