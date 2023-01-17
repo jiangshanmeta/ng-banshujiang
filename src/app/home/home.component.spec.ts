@@ -156,6 +156,13 @@ describe('HomeComponent', () => {
             expect(bookService.getAllBooks.calls.count()).toBe(1)
         })
 
+        it('should get categories from service',(done)=>{
+            component.categories$.subscribe((categories)=>{
+                expect(categories).toEqual(expectedCategory)
+                done()
+            })
+        })
+
         it('test component handle books from bookService',(done)=>{
             component.books$.subscribe({
                 next: (books)=>{

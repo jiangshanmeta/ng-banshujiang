@@ -17,5 +17,5 @@
 * ~~bookDetail C 单元测试太少~~
 * ~~eslint rule colon space~~
 * ~~eslint 类型 colon spance~~
-* rxjs相关优化
+* ~~rxjs相关优化~~
 * README.md

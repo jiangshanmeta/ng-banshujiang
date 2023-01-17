@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { forkJoin } from 'rxjs'
+import { map, Observable, of, switchMap,combineLatest } from 'rxjs'
 import { Book, BookId, BookService } from '../../book.service'
 
 @Component({
@@ -13,33 +13,37 @@ import { Book, BookId, BookService } from '../../book.service'
 export class BookDetailComponent implements OnInit {
     loading = true
     book: Book | null = null
-    books: Book[] = []
+    books$: Observable<Book[]> = of([])
     constructor(private route: ActivatedRoute, private bookService: BookService) {}
 
     ngOnInit(): void {
+        const bookId$ = this.route.paramMap.pipe(
+            map((paramMap)=>  Number(paramMap.get('bookId')) as BookId )
+        )
 
-        this.route.paramMap.subscribe((paramMap)=>{
+        bookId$.subscribe((bookId)=>{
             this.loading = true
-            const bookId = Number(paramMap.get('bookId')) as BookId
             this.bookService.getBook(bookId).subscribe((book) => {
                 this.book = book
                 this.loading = false
             })
+        })
 
 
-            forkJoin({
-                books: this.bookService.getAllBooks(),
-                bookIds: this.bookService.getRecommendationByBookId(bookId)
-            }).subscribe(({ books, bookIds }) => {
+        this.books$ = combineLatest({
+            books: this.bookService.getAllBooks(),
+            bookIds: bookId$.pipe(
+                switchMap((bookId)=> this.bookService.getRecommendationByBookId(bookId))
+            )
+        }).pipe(
+            map(({ books, bookIds })=>{
                 const bookMap = books.reduce<Record<BookId, Book>>((acc, item) => {
                     acc[item.id] = item
                     return acc
                 }, {})
-    
-                this.books = bookIds.map((bookId) => bookMap[bookId]).filter((item) => item)
+                return bookIds.map((bookId) => bookMap[bookId]).filter((item) => item)
             })
-        })
-        
+        )
 
     }
 }
