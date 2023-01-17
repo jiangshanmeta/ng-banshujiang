@@ -206,7 +206,7 @@ describe( 'BookService', () => {
 
         it( 'should return expected bookCategory', ()=>{
             service.getBookCategories().subscribe( {
-                next: bookCategory  => expect( bookCategory )
+                next: bookCategory => expect( bookCategory )
                     .withContext( 'should return expected bookCategory' )
                     .toEqual( expectedBookCategory ),
                 error: fail
@@ -346,7 +346,7 @@ describe( 'BookService', () => {
 
         it( 'should return expected recommendation', ()=>{
             service.getAllRecommendations().subscribe( {
-                next: recommendation  => expect( recommendation )
+                next: recommendation => expect( recommendation )
                     .withContext( 'should return expected recommendation' )
                     .toEqual( expectedRecommendation ),
                 error: fail

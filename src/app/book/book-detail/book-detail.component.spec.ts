@@ -82,7 +82,7 @@ describe( 'BookDetailComponent', () => {
     let routeStub: ActivatedRouteStub
 
     beforeEach( async () => {
-        routeStub =  new ActivatedRouteStub( {
+        routeStub = new ActivatedRouteStub( {
             bookId: '1'
         } )
 

@@ -18,7 +18,7 @@ export class BookDetailComponent implements OnInit {
 
     ngOnInit(): void {
         const bookId$ = this.route.paramMap.pipe(
-            map( ( paramMap )=>  Number( paramMap.get( 'bookId' ) ) as BookId )
+            map( ( paramMap )=> Number( paramMap.get( 'bookId' ) ) as BookId )
         )
 
         bookId$.pipe(

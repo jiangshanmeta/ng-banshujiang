@@ -1,7 +1,7 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core'
-import {  TestBed } from '@angular/core/testing'
+import { TestBed } from '@angular/core/testing'
 import { ActivatedRoute, Params } from '@angular/router'
-import { of,  } from 'rxjs'
+import { of, } from 'rxjs'
 import { Book, BookId, BookService } from 'src/app/book.service'
 import { ActivatedRouteStub } from 'src/testing'
 
