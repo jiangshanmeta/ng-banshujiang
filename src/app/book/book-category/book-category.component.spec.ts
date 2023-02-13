@@ -343,4 +343,28 @@ describe( 'BookCategoryComponent', () => {
 
     } )
 
+
+    it( 'should not call bookService when route param categorySubType is empey', async ()=>{
+        const {
+            component,
+            bookService
+        } = await arrange( {
+            getAllBooks: of( expectedBooks ),
+            getBookIdByCategory: of( [
+                1,
+                2,
+                11
+            ] as BookId[] ),
+            routeParam: {
+                categoryMainType: 'publish_year',
+                categorySubType: ''
+            }
+        } )
+
+        component.ngOnInit()
+
+        expect( bookService.getAllBooks ).not.toHaveBeenCalled()
+
+    } )
+
 } )

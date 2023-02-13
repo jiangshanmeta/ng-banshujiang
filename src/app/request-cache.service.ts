@@ -17,7 +17,7 @@ const maxAge = 86400000 // maximum cache age (ms)
 
 @Injectable()
 export class RequestCacheService implements RequestCache {
-    cache = new Map<string, RequestCacheEntry>()
+    private cache = new Map<string, RequestCacheEntry>()
 
     get( req: HttpRequest<any> ): HttpResponse<any> | undefined {
         const url = req.urlWithParams
