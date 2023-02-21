@@ -1,0 +1,301 @@
+[
+    {
+        "label": "编程语言",
+        "tags": [
+            {
+                "label": "Lua",
+                "url": "/category/programming_language/Lua"
+            },
+            {
+                "label": "Objective-C",
+                "url": "/category/programming_language/Objective-C"
+            },
+            {
+                "label": "Perl",
+                "url": "/category/programming_language/Perl"
+            },
+            {
+                "label": "PHP",
+                "url": "/category/programming_language/PHP"
+            },
+            {
+                "label": "PowderShell",
+                "url": "/category/programming_language/PowerShell"
+            },
+            {
+                "label": "Python",
+                "url": "/category/programming_language/Python"
+            },
+            {
+                "label": "R",
+                "url": "/category/programming_language/R"
+            },
+            {
+                "label": "Ruby",
+                "url": "/category/programming_language/Ruby"
+            },
+            {
+                "label": "Rust",
+                "url": "/category/programming_language/Rust"
+            },
+            {
+                "label": "Scala",
+                "url": "/category/programming_language/Scala"
+            },
+            {
+                "label": "Shell Script",
+                "url": "/category/programming_language/Shell%20Script"
+            },
+            {
+                "label": "SQL",
+                "url": "/category/programming_language/SQL"
+            },
+            {
+                "label": "Swift",
+                "url": "/category/programming_language/Swift"
+            },
+            {
+                "label": "TypeScript",
+                "url": "/category/programming_language/TypeScript"
+            }
+        ]
+    },
+    {
+        "label": "移动开发",
+        "tags": [
+            {
+                "label": "Android",
+                "url": "/category/mobile_development/Android"
+            },
+            {
+                "label": "iOS",
+                "url": "/category/mobile_development/iOS"
+            }
+        ]
+    },
+    {
+        "label": "操作系统",
+        "tags": [
+            {
+                "label": "Linux",
+                "url": "/category/operation_system/Linux"
+            },
+            {
+                "label": "Mac OS X",
+                "url": "/category/operation_system/Mac%20OS%20X"
+            },
+            {
+                "label": "Unix",
+                "url": "/category/operation_system/Unix"
+            },
+            {
+                "label": "Windows",
+                "url": "/category/operation_system/Windows"
+            }
+        ]
+    },
+    {
+        "label": "数据库",
+        "tags": [
+            {
+                "label": "DB2",
+                "url": "/category/database/DB2"
+            },
+            {
+                "label": "MongoDB",
+                "url": "/category/database/MongoDB"
+            },
+            {
+                "label": "MySQL",
+                "url": "/category/database/MySQL"
+            },
+            {
+                "label": "Oracle",
+                "url": "/category/database/Oracle"
+            },
+            {
+                "label": "PostgreSQL",
+                "url": "/category/database/PostgreSQL"
+            },
+            {
+                "label": "SQL Server",
+                "url": "/category/database/SQL%20Server"
+            },
+            {
+                "label": "SQLite",
+                "url": "/category/database/SQLite"
+            }
+        ]
+    },
+    {
+        "label": "开源软件",
+        "tags": [
+            {
+                "label": "Apache项目",
+                "url": "/category/open_source/Apache%E9%A1%B9%E7%9B%AE"
+            },
+            {
+                "label": "Web开发",
+                "url": "/category/open_source/Web%E5%BC%80%E5%8F%91"
+            },
+            {
+                "label": "区块链",
+                "url": "/category/open_source/%E5%8C%BA%E5%9D%97%E9%93%BE"
+            },
+            {
+                "label": "程序开发",
+                "url": "/category/open_source/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91"
+            }
+        ]
+    },
+    {
+        "label": "语言",
+        "tags": [
+            {
+                "label": "中文",
+                "url": "/category/language/%E4%B8%AD%E6%96%87"
+            },
+            {
+                "label": "英文",
+                "url": "/category/language/%E8%8B%B1%E6%96%87"
+            }
+        ]
+    },
+    {
+        "label": "年份",
+        "tags": [
+            {
+                "label": "2022",
+                "url": "/category/publish_year/2022"
+            },
+            {
+                "label": "2021",
+                "url": "/category/publish_year/2021"
+            },
+            {
+                "label": "2020",
+                "url": "/category/publish_year/2020"
+            },
+            {
+                "label": "2019",
+                "url": "/category/publish_year/2019"
+            },
+            {
+                "label": "2018",
+                "url": "/category/publish_year/2018"
+            },
+            {
+                "label": "2017",
+                "url": "/category/publish_year/2017"
+            },
+            {
+                "label": "2016",
+                "url": "/category/publish_year/2016"
+            },
+            {
+                "label": "2015",
+                "url": "/category/publish_year/2015"
+            },
+            {
+                "label": "2014",
+                "url": "/category/publish_year/2014"
+            },
+            {
+                "label": "2013",
+                "url": "/category/publish_year/2013"
+            },
+            {
+                "label": "2012",
+                "url": "/category/publish_year/2012"
+            },
+            {
+                "label": "2011",
+                "url": "/category/publish_year/2011"
+            },
+            {
+                "label": "2010",
+                "url": "/category/publish_year/2010"
+            },
+            {
+                "label": "2009",
+                "url": "/category/publish_year/2009"
+            },
+            {
+                "label": "2008",
+                "url": "/category/publish_year/2008"
+            },
+            {
+                "label": "2007",
+                "url": "/category/publish_year/2007"
+            },
+            {
+                "label": "2006",
+                "url": "/category/publish_year/2006"
+            },
+            {
+                "label": "2005",
+                "url": "/category/publish_year/2005"
+            },
+            {
+                "label": "2004",
+                "url": "/category/publish_year/2004"
+            },
+            {
+                "label": "2003",
+                "url": "/category/publish_year/2003"
+            },
+            {
+                "label": "2002",
+                "url": "/category/publish_year/2002"
+            },
+            {
+                "label": "2001",
+                "url": "/category/publish_year/2001"
+            },
+            {
+                "label": "2000",
+                "url": "/category/publish_year/2000"
+            },
+            {
+                "label": "1999",
+                "url": "/category/publish_year/1999"
+            },
+            {
+                "label": "1998",
+                "url": "/category/publish_year/1998"
+            },
+            {
+                "label": "1997",
+                "url": "/category/publish_year/1997"
+            },
+            {
+                "label": "1996",
+                "url": "/category/publish_year/1996"
+            },
+            {
+                "label": "1995",
+                "url": "/category/publish_year/1995"
+            },
+            {
+                "label": "1994",
+                "url": "/category/publish_year/1994"
+            },
+            {
+                "label": "1993",
+                "url": "/category/publish_year/1993"
+            },
+            {
+                "label": "1992",
+                "url": "/category/publish_year/1992"
+            },
+            {
+                "label": "1988",
+                "url": "/category/publish_year/1988"
+            },
+            {
+                "label": "1987",
+                "url": "/category/publish_year/1987"
+            }
+        ]
+    }
+]

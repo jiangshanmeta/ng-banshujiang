@@ -5,9 +5,9 @@
   "projects": {
     "ng-banshujiang": {
       "i18n": {
-        "sourceLocale":"zh",
+        "sourceLocale": "zh",
         "locales": {
-          "en":{
+          "en": {
             "translation": "src/locale/messages.en.xlf"
           }
         }
@@ -39,8 +39,10 @@
             "scripts": []
           },
           "configurations": {
-            "en":{
-              "localize": ["en"]
+            "en": {
+              "localize": [
+                "en"
+              ]
             },
             "production": {
               "budgets": [
@@ -64,7 +66,9 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true,
-              "localize": ["zh"]
+              "localize": [
+                "zh"
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -93,7 +97,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "codeCoverageExclude": ["src/testing/**/*"],
+            "codeCoverageExclude": [
+              "src/testing/**/*"
+            ],
             "karmaConfig": "karma.conf.js",
             "polyfills": [
               "zone.js",
@@ -118,13 +124,46 @@
               "src/**/*.html"
             ]
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "ng-banshujiang:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ng-banshujiang:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "ng-banshujiang:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ng-banshujiang:serve:production"
+            }
+          }
         }
       }
     }
   },
   "cli": {
     "schematicCollections": [
-      "@angular-eslint/schematics"
+      "@cypress/schematic",
+      "@angular-eslint/schematics",
+      "@schematics/angular"
     ]
   }
 }
