@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:e2e": "ng serve --extra-webpack-config ./cypress/coverage.webpack.js",
     "start:en": "ng serve --configuration=en",
     "build": "ng build --output-path dist   --base-href /ng-banshujiang/ --localize",
     "watch": "ng build --watch --configuration development",
@@ -17,9 +18,9 @@
     "lint:css": "stylelint \"src/**/*.css\" --fix ",
     "prepare": "husky install",
     "e2e": "ng e2e",
-    "test:e2e": "start-server-and-test start http://localhost:4200 cypress:run",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "test:e2e": "start-server-and-test start:e2e http://localhost:4200 cypress:run",
+    "cypress:open": "cypress open  --env coverage=true",
+    "cypress:run": "cypress run --env coverage=true"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +32,7 @@
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
+    "ngx-build-plus": "^15.0.0",
     "ngx-pagination": "^6.0.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
@@ -46,14 +48,19 @@
     "@angular/cli": "~15.0.4",
     "@angular/compiler-cli": "^15.0.0",
     "@angular/localize": "^15.0.4",
+    "@cypress/code-coverage": "^3.10.0",
+    "@istanbuljs/nyc-config-babel": "^3.0.0",
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@types/jasmine": "~4.3.0",
     "@typescript-eslint/eslint-plugin": "5.44.0",
     "@typescript-eslint/parser": "5.44.0",
     "autoprefixer": "^10.4.13",
+    "babel-plugin-istanbul": "^6.1.1",
     "cypress": "latest",
     "eslint": "^8.28.0",
     "eslint-plugin-tailwindcss": "^3.8.0",
     "husky": "^8.0.2",
+    "istanbul-lib-coverage": "^3.2.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -61,7 +68,9 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "lint-staged": "^13.1.0",
+    "nyc": "^15.1.0",
     "postcss": "^8.4.20",
+    "source-map-support": "^0.5.21",
     "start-server-and-test": "^1.15.4",
     "stylelint": "^14.16.1",
     "stylelint-config-standard": "^29.0.0",
@@ -71,6 +80,22 @@
   "lint-staged": {
     "*.{ts,html}": [
       "npm run lint"
+    ]
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-babel",
+    "all": true,
+    "exclude": [
+      "**/cypress/**",
+      "**/coverage/**",
+      "karma.conf.js",
+      "src/test.ts",
+      "**/*.spec.ts"
+    ],
+    "reporter": [
+      "html",
+      "text-summary",
+      "lcov"
     ]
   }
 }
