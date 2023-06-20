@@ -1,0 +1,21 @@
+{
+    "id": 2971,
+    "title": "Learning TypeScript",
+    "img": "https://imagebsj.netlify.app/2971.jpeg",
+    "author": "Josh Goldberg",
+    "language": "英文",
+    "publishYear": 2022,
+    "programLanguage": "TypeScript",
+    "formats": [
+        {
+            "fmt": "PDF",
+            "title": "城通网盘",
+            "link": "/e_books/2971/webstorage_links/10957/to_link"
+        },
+        {
+            "fmt": "EPUB",
+            "title": "城通网盘",
+            "link": "/e_books/2971/webstorage_links/10956/to_link"
+        }
+    ]
+}

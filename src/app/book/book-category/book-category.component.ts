@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { Book, BookId, BookService } from '../../book.service'
+import { Book, BookService } from '../../book.service'
 
-import { forkJoin } from 'rxjs'
+
 
 @Component( {
     selector: 'app-book-category',
@@ -37,16 +37,10 @@ export class BookCategoryComponent implements OnInit {
             return
         }
 
-        forkJoin( {
-            books: this.bookService.getAllBooks(),
-            bookIds: this.bookService.getBookIdByCategory( categorySubType )
-        } ).subscribe( ( { books, bookIds } ) => {
-            const bookMap = books.reduce<Record<BookId, Book>>( ( acc, item ) => {
-                acc[item.id] = item
-                return acc
-            }, {} )
-
-            this.books = bookIds.map( ( bookId ) => bookMap[bookId] ).filter( ( item ) => item )
+        this.bookService.getBooksByCategory( categorySubType ).subscribe( ( books )=>{
+            this.books = books
         } )
+
+
     }
 }

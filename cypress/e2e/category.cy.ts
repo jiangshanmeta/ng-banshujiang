@@ -1,13 +1,13 @@
 describe( 'Test book category list page', ()=>{
 
     beforeEach( ()=>{
-        cy.intercept( 'GET', '*/books.json', {
+        cy.intercept( 'GET', '*/books', {
             fixture: 'books.json'
         } )
 
 
-        cy.intercept( 'GET', '*/bookCategory.json', {
-            fixture: 'bookCategory.json'
+        cy.intercept( 'GET', '*/categories/Android.json', {
+            fixture: 'Android.json'
         } )
 
     } )

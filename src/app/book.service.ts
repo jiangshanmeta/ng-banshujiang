@@ -23,10 +23,10 @@ export interface Book {
     }[]
 }
 
-export interface RecommendationItem {
-    id: BookId;
-    recommendations: BookId[];
-}
+// export interface RecommendationItem {
+//     id: BookId;
+//     recommendations: Book[];
+// }
 
 
 
@@ -39,29 +39,20 @@ export class BookService {
     }
 
     getAllBooks() {
-        return this.http.get<Book[]>( `${this.api_url}books.json` )
+        return this.http.get<Book[]>( `${this.api_url}books` )
     }
 
     getBook( bookId: BookId ) {
-        return this.getAllBooks().pipe( map( ( books ) => books.find( ( book ) => book.id === bookId ) || null ) )
+        return this.http.get<Book | null>( `${this.api_url}books/${bookId}.json` )
+            .pipe( map( ( book )=>book || null ) )
     }
 
-    getBookCategories() {
-        return this.http.get<Record<string, BookId[]>>( `${this.api_url}bookCategory.json` )
-    }
-
-    getBookIdByCategory( category: string ) {
-        return this.getBookCategories().pipe( map( ( res ) => res[category] || [] ) )
-    }
-
-
-    getAllRecommendations(){
-        return this.http.get<RecommendationItem[]>( `${this.api_url}recommendation.json` )
+    getBooksByCategory( category: string ) {
+        return this.http.get<Book[]>( `${this.api_url}categories/${category}.json` )
     }
 
     getRecommendationByBookId( bookId: BookId ){
-        return this.getAllRecommendations()
-            .pipe( map( res=>res.find( item=>item.id === bookId )?.recommendations || [] ) )
+        return this.http.get<Book[]>( `${this.api_url}books/${bookId}/recommendation.json` )
     }
 
 

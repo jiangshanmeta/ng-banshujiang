@@ -73,7 +73,7 @@ describe( 'CategoryService', () => {
 
                 expect( httpClientSpy.get.calls.count() ).toBe( 1 )
                 expect( httpClientSpy.get.calls.mostRecent().args[0] )
-                    .toBe( 'https://jiangshanmeta.github.io/spider-banshujiang/categories.json' )
+                    .toBe( 'https://jiangshanmeta.github.io/spider-banshujiang/categories' )
 
 
                 done()

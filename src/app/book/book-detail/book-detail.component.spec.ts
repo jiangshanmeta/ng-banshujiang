@@ -137,12 +137,42 @@ describe( 'BookDetailComponent', () => {
         bookService.getRecommendationByBookId.and.callFake( ( bookId )=>{
             if( bookId === 1 ){
                 return of( [
-                    2
-                ] as BookId[] )
+                    {
+                        "id": 2 as BookId,
+                        "title": "JavaScript Patterns",
+                        "img": "https://imagebsj.netlify.app/2.jpeg",
+                        "author": "Stoyan Stefanov",
+                        "language": "英文",
+                        "publishYear": 2010,
+                        "programLanguage": "JavaScript",
+                        "formats": [
+                            {
+                                "fmt": "PDF",
+                                "title": "城通网盘",
+                                "link": "/e_books/2/webstorage_links/13521/to_link"
+                            }
+                        ]
+                    },
+                ] )
             }else if( bookId === 11 ){
                 return of( [
-                    1
-                ] as BookId[] ).pipe( delay( 100 ) )
+                    {
+                        "id": 1 as BookId,
+                        "title": "JavaScript Cookbook",
+                        "img": "https://imagebsj.netlify.app/1.jpeg",
+                        "author": "Shelly Powers",
+                        "language": "英文",
+                        "publishYear": 2010,
+                        "programLanguage": "JavaScript",
+                        "formats": [
+                            {
+                                "fmt": "PDF",
+                                "title": "城通网盘",
+                                "link": "/e_books/1/webstorage_links/13519/to_link"
+                            }
+                        ]
+                    },
+                ] ).pipe( delay( 100 ) )
             }
 
             return of( [] )
@@ -209,7 +239,6 @@ describe( 'BookDetailComponent', () => {
 
     describe( '#recommendation', ()=>{
         it( 'should call service to get recommendation', ()=>{
-            expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
             expect( bookService.getRecommendationByBookId.calls.count() ).toBe( 1 )
             expect( bookService.getRecommendationByBookId.calls.first().args[0] ).toBe( 1 as BookId )
         } )
@@ -242,7 +271,6 @@ describe( 'BookDetailComponent', () => {
                 bookId: '11'
             } )
     
-            expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
             expect( bookService.getRecommendationByBookId.calls.count() ).toBe( 2 )
             expect( bookService.getRecommendationByBookId.calls.mostRecent().args[0] ).toBe( 11 as BookId )
         } )

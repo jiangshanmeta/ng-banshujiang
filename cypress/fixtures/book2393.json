@@ -1,0 +1,21 @@
+{
+    "id": 2393,
+    "title": "Effective TypeScript",
+    "img": "https://imagebsj.netlify.app/2393.jpeg",
+    "author": "Dan Vanderkam",
+    "language": "英文",
+    "publishYear": 2020,
+    "programLanguage": "TypeScript",
+    "formats": [
+        {
+            "fmt": "PDF",
+            "title": "城通网盘",
+            "link": "/e_books/2393/webstorage_links/15851/to_link"
+        },
+        {
+            "fmt": "EPUB",
+            "title": "城通网盘",
+            "link": "/e_books/2393/webstorage_links/15850/to_link"
+        }
+    ]
+}

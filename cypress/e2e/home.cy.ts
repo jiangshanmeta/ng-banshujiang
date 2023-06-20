@@ -1,10 +1,10 @@
 describe( 'In home page', () => {
     beforeEach( ()=>{
-        cy.intercept( 'GET', '*/categories.json', {
+        cy.intercept( 'GET', '*/categories', {
             fixture: 'categories.json'
         } )
 
-        cy.intercept( 'GET', '*/books.json', {
+        cy.intercept( 'GET', '*/books', {
             fixture: 'books.json'
         } )
 

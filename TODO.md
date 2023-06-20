@@ -19,3 +19,4 @@
 * ~~eslint 类型 colon spance~~
 * ~~rxjs相关优化~~
 * README.md
+* 异常处理

@@ -64,11 +64,11 @@ describe( 'BookCategoryComponent', () => {
 
     async function arrange( {
         getAllBooks,
-        getBookIdByCategory,
+        getBooksByCategory,
         routeParam
     }: {
         getAllBooks: ReturnType<BookService['getAllBooks']>,
-        getBookIdByCategory: ReturnType<BookService['getBookIdByCategory']>,
+        getBooksByCategory: ReturnType<BookService['getBooksByCategory']>,
         routeParam: Params
     } ){
         await TestBed.configureTestingModule( {
@@ -80,7 +80,7 @@ describe( 'BookCategoryComponent', () => {
                     provide: BookService,
                     useValue: jasmine.createSpyObj( 'BookService', [
                         'getAllBooks',
-                        'getBookIdByCategory'
+                        'getBooksByCategory'
                     ] )
                 },
                 {
@@ -95,7 +95,7 @@ describe( 'BookCategoryComponent', () => {
 
         const bookService = TestBed.inject( BookService ) as jasmine.SpyObj<BookService>
         bookService.getAllBooks.and.returnValue( getAllBooks )
-        bookService.getBookIdByCategory.and.returnValue( getBookIdByCategory )
+        bookService.getBooksByCategory.and.returnValue( getBooksByCategory )
 
         const route = TestBed.inject( ActivatedRoute )
 
@@ -115,9 +115,24 @@ describe( 'BookCategoryComponent', () => {
             component
         } = await arrange( {
             getAllBooks: of( expectedBooks ),
-            getBookIdByCategory: of( [
-                1
-            ] as BookId[] ),
+            getBooksByCategory: of( [
+                {
+                    "id": 1 as BookId,
+                    "title": "JavaScript Cookbook",
+                    "img": "https://imagebsj.netlify.app/1.jpeg",
+                    "author": "Shelly Powers",
+                    "language": "英文",
+                    "publishYear": 2010,
+                    "programLanguage": "JavaScript",
+                    "formats": [
+                        {
+                            "fmt": "PDF",
+                            "title": "城通网盘",
+                            "link": "/e_books/1/webstorage_links/13519/to_link"
+                        }
+                    ]
+                },
+            ] ),
             routeParam: {
                 categoryMainType: 'language',
                 categorySubType: '中文'
@@ -133,9 +148,24 @@ describe( 'BookCategoryComponent', () => {
             component
         } = await arrange( {
             getAllBooks: of( expectedBooks ),
-            getBookIdByCategory: of( [
-                1
-            ] as BookId[] ),
+            getBooksByCategory: of( [
+                {
+                    "id": 1 as BookId,
+                    "title": "JavaScript Cookbook",
+                    "img": "https://imagebsj.netlify.app/1.jpeg",
+                    "author": "Shelly Powers",
+                    "language": "英文",
+                    "publishYear": 2010,
+                    "programLanguage": "JavaScript",
+                    "formats": [
+                        {
+                            "fmt": "PDF",
+                            "title": "城通网盘",
+                            "link": "/e_books/1/webstorage_links/13519/to_link"
+                        }
+                    ]
+                },
+            ] ),
             routeParam: {
                 categoryMainType: 'language',
                 categorySubType: '中文'
@@ -172,11 +202,56 @@ describe( 'BookCategoryComponent', () => {
             bookService
         } = await arrange( {
             getAllBooks: of( expectedBooks ),
-            getBookIdByCategory: of( [
-                1,
-                2,
-                11
-            ] as BookId[] ),
+            getBooksByCategory: of( [
+                {
+                    "id": 1 as BookId,
+                    "title": "JavaScript Cookbook",
+                    "img": "https://imagebsj.netlify.app/1.jpeg",
+                    "author": "Shelly Powers",
+                    "language": "英文",
+                    "publishYear": 2010,
+                    "programLanguage": "JavaScript",
+                    "formats": [
+                        {
+                            "fmt": "PDF",
+                            "title": "城通网盘",
+                            "link": "/e_books/1/webstorage_links/13519/to_link"
+                        }
+                    ]
+                },
+                {
+                    "id": 2 as BookId,
+                    "title": "JavaScript Patterns",
+                    "img": "https://imagebsj.netlify.app/2.jpeg",
+                    "author": "Stoyan Stefanov",
+                    "language": "英文",
+                    "publishYear": 2010,
+                    "programLanguage": "JavaScript",
+                    "formats": [
+                        {
+                            "fmt": "PDF",
+                            "title": "城通网盘",
+                            "link": "/e_books/2/webstorage_links/13521/to_link"
+                        }
+                    ]
+                },
+                {
+                    "id": 11 as BookId,
+                    "title": "Ruby编程语言",
+                    "img": "https://imagebsj.netlify.app/11.jpeg",
+                    "author": "David Flanagan,Yukihiro Matsumoto",
+                    "language": "中文",
+                    "publishYear": 2009,
+                    "programLanguage": "Ruby",
+                    "formats": [
+                        {
+                            "fmt": "PDF",
+                            "title": "城通网盘",
+                            "link": "/e_books/11/webstorage_links/13539/to_link"
+                        }
+                    ]
+                },
+            ] ),
             routeParam: {
                 categoryMainType: 'language',
                 categorySubType: '英文'
@@ -233,11 +308,56 @@ describe( 'BookCategoryComponent', () => {
             bookService
         } = await arrange( {
             getAllBooks: of( expectedBooks ),
-            getBookIdByCategory: of( [
-                1,
-                2,
-                11
-            ] as BookId[] ),
+            getBooksByCategory: of( [
+                {
+                    "id": 1 as BookId,
+                    "title": "JavaScript Cookbook",
+                    "img": "https://imagebsj.netlify.app/1.jpeg",
+                    "author": "Shelly Powers",
+                    "language": "英文",
+                    "publishYear": 2010,
+                    "programLanguage": "JavaScript",
+                    "formats": [
+                        {
+                            "fmt": "PDF",
+                            "title": "城通网盘",
+                            "link": "/e_books/1/webstorage_links/13519/to_link"
+                        }
+                    ]
+                },
+                {
+                    "id": 2 as BookId,
+                    "title": "JavaScript Patterns",
+                    "img": "https://imagebsj.netlify.app/2.jpeg",
+                    "author": "Stoyan Stefanov",
+                    "language": "英文",
+                    "publishYear": 2010,
+                    "programLanguage": "JavaScript",
+                    "formats": [
+                        {
+                            "fmt": "PDF",
+                            "title": "城通网盘",
+                            "link": "/e_books/2/webstorage_links/13521/to_link"
+                        }
+                    ]
+                },
+                {
+                    "id": 11 as BookId,
+                    "title": "Ruby编程语言",
+                    "img": "https://imagebsj.netlify.app/11.jpeg",
+                    "author": "David Flanagan,Yukihiro Matsumoto",
+                    "language": "中文",
+                    "publishYear": 2009,
+                    "programLanguage": "Ruby",
+                    "formats": [
+                        {
+                            "fmt": "PDF",
+                            "title": "城通网盘",
+                            "link": "/e_books/11/webstorage_links/13539/to_link"
+                        }
+                    ]
+                },
+            ] ),
             routeParam: {
                 categoryMainType: 'publish_year',
                 categorySubType: '2010'
@@ -292,10 +412,40 @@ describe( 'BookCategoryComponent', () => {
             bookService
         } = await arrange( {
             getAllBooks: of( expectedBooks ),
-            getBookIdByCategory: of( [
-                1,
-                2,
-            ] as BookId[] ),
+            getBooksByCategory: of( [
+                {
+                    "id": 1 as BookId,
+                    "title": "JavaScript Cookbook",
+                    "img": "https://imagebsj.netlify.app/1.jpeg",
+                    "author": "Shelly Powers",
+                    "language": "英文",
+                    "publishYear": 2010,
+                    "programLanguage": "JavaScript",
+                    "formats": [
+                        {
+                            "fmt": "PDF",
+                            "title": "城通网盘",
+                            "link": "/e_books/1/webstorage_links/13519/to_link"
+                        }
+                    ]
+                },
+                {
+                    "id": 2 as BookId,
+                    "title": "JavaScript Patterns",
+                    "img": "https://imagebsj.netlify.app/2.jpeg",
+                    "author": "Stoyan Stefanov",
+                    "language": "英文",
+                    "publishYear": 2010,
+                    "programLanguage": "JavaScript",
+                    "formats": [
+                        {
+                            "fmt": "PDF",
+                            "title": "城通网盘",
+                            "link": "/e_books/2/webstorage_links/13521/to_link"
+                        }
+                    ]
+                },
+            ] ),
             routeParam: {
                 categoryMainType: 'programming_language',
                 categorySubType: 'JavaScript'
@@ -303,9 +453,9 @@ describe( 'BookCategoryComponent', () => {
         } )
 
         component.ngOnInit()
-        expect( bookService.getAllBooks.calls.count() ).toBe( 1 )
-        expect( bookService.getBookIdByCategory.calls.count() ).toBe( 1 )
-        expect( bookService.getBookIdByCategory.calls.first().args[0] ).toBe( 'JavaScript' )
+
+        expect( bookService.getBooksByCategory.calls.count() ).toBe( 1 )
+        expect( bookService.getBooksByCategory.calls.first().args[0] ).toBe( 'JavaScript' )
         expect( component.books ).toEqual( [
             {
                 "id": 1 as BookId,
@@ -350,11 +500,56 @@ describe( 'BookCategoryComponent', () => {
             bookService
         } = await arrange( {
             getAllBooks: of( expectedBooks ),
-            getBookIdByCategory: of( [
-                1,
-                2,
-                11
-            ] as BookId[] ),
+            getBooksByCategory: of( [
+                {
+                    "id": 1 as BookId,
+                    "title": "JavaScript Cookbook",
+                    "img": "https://imagebsj.netlify.app/1.jpeg",
+                    "author": "Shelly Powers",
+                    "language": "英文",
+                    "publishYear": 2010,
+                    "programLanguage": "JavaScript",
+                    "formats": [
+                        {
+                            "fmt": "PDF",
+                            "title": "城通网盘",
+                            "link": "/e_books/1/webstorage_links/13519/to_link"
+                        }
+                    ]
+                },
+                {
+                    "id": 2 as BookId,
+                    "title": "JavaScript Patterns",
+                    "img": "https://imagebsj.netlify.app/2.jpeg",
+                    "author": "Stoyan Stefanov",
+                    "language": "英文",
+                    "publishYear": 2010,
+                    "programLanguage": "JavaScript",
+                    "formats": [
+                        {
+                            "fmt": "PDF",
+                            "title": "城通网盘",
+                            "link": "/e_books/2/webstorage_links/13521/to_link"
+                        }
+                    ]
+                },
+                {
+                    "id": 11 as BookId,
+                    "title": "Ruby编程语言",
+                    "img": "https://imagebsj.netlify.app/11.jpeg",
+                    "author": "David Flanagan,Yukihiro Matsumoto",
+                    "language": "中文",
+                    "publishYear": 2009,
+                    "programLanguage": "Ruby",
+                    "formats": [
+                        {
+                            "fmt": "PDF",
+                            "title": "城通网盘",
+                            "link": "/e_books/11/webstorage_links/13539/to_link"
+                        }
+                    ]
+                },
+            ] ),
             routeParam: {
                 categoryMainType: 'publish_year',
                 categorySubType: ''

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { map, Observable, of, switchMap, combineLatest, tap } from 'rxjs'
+import { map, Observable, of, switchMap, tap } from 'rxjs'
 import { Book, BookId, BookService } from '../../book.service'
 
 @Component( {
@@ -29,21 +29,11 @@ export class BookDetailComponent implements OnInit {
             this.loading = false
         } )
         
-        
-        this.books$ = combineLatest( {
-            books: this.bookService.getAllBooks(),
-            bookIds: bookId$.pipe(
-                switchMap( ( bookId )=> this.bookService.getRecommendationByBookId( bookId ) )
-            )
-        } ).pipe(
-            map( ( { books, bookIds } )=>{
-                const bookMap = books.reduce<Record<BookId, Book>>( ( acc, item ) => {
-                    acc[item.id] = item
-                    return acc
-                }, {} )
-                return bookIds.map( ( bookId ) => bookMap[bookId] ).filter( ( item ) => item )
-            } )
+        this.books$ = bookId$.pipe(
+            switchMap( ( bookId )=> this.bookService.getRecommendationByBookId( bookId ) )
         )
+        
+
 
     }
 }

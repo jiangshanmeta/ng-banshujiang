@@ -1,0 +1,170 @@
+[
+    {
+        "id": 3118,
+        "title": "Solid Introduction To Software Design and Architecture with Typescript",
+        "img": "https://imagebsj.netlify.app/3118.jpeg",
+        "author": "Khalil Stemmler",
+        "language": "英文",
+        "publishYear": 2022,
+        "programLanguage": "TypeScript",
+        "formats": [
+            {
+                "fmt": "PDF",
+                "title": "城通网盘",
+                "link": "/e_books/3118/webstorage_links/16537/to_link"
+            },
+            {
+                "fmt": "EPUB",
+                "title": "城通网盘",
+                "link": "/e_books/3118/webstorage_links/16538/to_link"
+            }
+        ]
+    },
+    {
+        "id": 3083,
+        "title": "TypeScript Quickly",
+        "img": "https://imagebsj.netlify.app/3083.jpeg",
+        "author": "Yakov Fain and Anton Moiseev",
+        "language": "英文",
+        "publishYear": 2020,
+        "programLanguage": "TypeScript",
+        "formats": [
+            {
+                "fmt": "PDF",
+                "title": "城通网盘",
+                "link": "/e_books/3083/webstorage_links/16382/to_link"
+            }
+        ]
+    },
+    {
+        "id": 3013,
+        "title": "Angular Development with Typescript 2nd Edition",
+        "img": "https://imagebsj.netlify.app/3013.jpeg",
+        "author": "Yakov Fain and Anton Moiseev",
+        "language": "英文",
+        "publishYear": 2019,
+        "programLanguage": "TypeScript",
+        "formats": [
+            {
+                "fmt": "PDF",
+                "title": "城通网盘",
+                "link": "/e_books/3013/webstorage_links/16087/to_link"
+            },
+            {
+                "fmt": "EPUB",
+                "title": "城通网盘",
+                "link": "/e_books/3013/webstorage_links/16085/to_link"
+            },
+            {
+                "fmt": "MOBI",
+                "title": "城通网盘",
+                "link": "/e_books/3013/webstorage_links/16086/to_link"
+            }
+        ]
+    },
+    {
+        "id": 2700,
+        "title": "Programming TypeScript",
+        "img": "https://imagebsj.netlify.app/2700.jpeg",
+        "author": "Boris Cherny",
+        "language": "英文",
+        "publishYear": 2019,
+        "programLanguage": "TypeScript",
+        "formats": [
+            {
+                "fmt": "EPUB",
+                "title": "城通网盘",
+                "link": "/e_books/2700/webstorage_links/9621/to_link"
+            }
+        ]
+    },
+    {
+        "id": 2675,
+        "title": "Tackling TypeScript",
+        "img": "https://imagebsj.netlify.app/2675.jpeg",
+        "author": "Dr. Axel Rauschmayer",
+        "language": "英文",
+        "publishYear": 2020,
+        "programLanguage": "TypeScript",
+        "formats": [
+            {
+                "fmt": "PDF",
+                "title": "城通网盘",
+                "link": "/e_books/2675/webstorage_links/9522/to_link"
+            },
+            {
+                "fmt": "EPUB",
+                "title": "城通网盘",
+                "link": "/e_books/2675/webstorage_links/9524/to_link"
+            },
+            {
+                "fmt": "MOBI",
+                "title": "城通网盘",
+                "link": "/e_books/2675/webstorage_links/9523/to_link"
+            }
+        ]
+    },
+    {
+        "id": 2416,
+        "title": "Fullstack React with TypeScript",
+        "img": "https://imagebsj.netlify.app/2416.jpeg",
+        "author": "Maksim Ivanov and Alex Bespoyasov",
+        "language": "英文",
+        "publishYear": 2020,
+        "programLanguage": "TypeScript",
+        "formats": [
+            {
+                "fmt": "PDF",
+                "title": "城通网盘",
+                "link": "/e_books/2416/webstorage_links/15895/to_link"
+            },
+            {
+                "fmt": "EPUB",
+                "title": "城通网盘",
+                "link": "/e_books/2416/webstorage_links/15897/to_link"
+            },
+            {
+                "fmt": "MOBI",
+                "title": "城通网盘",
+                "link": "/e_books/2416/webstorage_links/15896/to_link"
+            }
+        ]
+    },
+    {
+        "id": 2393,
+        "title": "Effective TypeScript",
+        "img": "https://imagebsj.netlify.app/2393.jpeg",
+        "author": "Dan Vanderkam",
+        "language": "英文",
+        "publishYear": 2020,
+        "programLanguage": "TypeScript",
+        "formats": [
+            {
+                "fmt": "PDF",
+                "title": "城通网盘",
+                "link": "/e_books/2393/webstorage_links/15851/to_link"
+            },
+            {
+                "fmt": "EPUB",
+                "title": "城通网盘",
+                "link": "/e_books/2393/webstorage_links/15850/to_link"
+            }
+        ]
+    },
+    {
+        "id": 2225,
+        "title": "Testing Angular Applications",
+        "img": "https://imagebsj.netlify.app/2225.jpeg",
+        "author": "Jesse Palmer, Corinna Cohn, Michael Giambalvo and Craig Nishina",
+        "language": "英文",
+        "publishYear": 2018,
+        "programLanguage": "TypeScript",
+        "formats": [
+            {
+                "fmt": "PDF",
+                "title": "城通网盘",
+                "link": "/e_books/2225/webstorage_links/15577/to_link"
+            }
+        ]
+    }
+]
